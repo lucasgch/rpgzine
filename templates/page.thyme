@@ -5,17 +5,21 @@
 	<body onload="prettyPrint()">
 	<div id="wrap">
 		<div th:replace="menu.thyme::menu"/>
-		<div class="container">
+		<div class="container" style="max-width: 860px;">
 	
-			<div class="page-header">
-				<h1 th:text='${content.title}'>title</h1>
+			<div class="article-header">
+				<h1 th:text='${content.title}'>Título da Página</h1>
 			</div>
 		
-			<p><em th:text='${#dates.format(content.date,"dd MMMM yyyy")}'>date</em></p>
-		
-			<p th:utext='${content.body}'>body</p>
-		
-			<hr />
+			<div class="article-content" th:utext='${content.body}'>
+				Conteúdo da página...
+			</div>
+
+			<div style="margin: 40px 0; text-align: center;">
+				<a th:href='${content.rootpath+"index.html"}' class="btn-rpg">
+					← Voltar para o Zine
+				</a>
+			</div>
 		</div>
 	</div>
 	<div th:replace="footer.thyme::footer"></div>

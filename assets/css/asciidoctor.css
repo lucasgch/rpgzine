@@ -90,7 +90,7 @@ p.lead, .paragraph.lead > p, #preamble > .sectionbody > .paragraph:first-of-type
 /* Lists */
 ul, ol, dl { font-size: 1em; line-height: 1.6; margin-bottom: 1.25em; list-style-position: outside; font-family: inherit; }
 
-ul, ol { margin-left: 1.5em; }
+ul, ol { margin-left: 0; }
 
 /* Unordered Lists */
 ul li ul, ul li ol { margin-left: 1.25em; margin-bottom: 0; font-size: 1em; /* Override nested font-size change */ }
@@ -338,9 +338,9 @@ p.tableblock.header { color: #222222; font-weight: bold; }
 
 td > div.verse { white-space: pre; }
 
-ol { margin-left: 1.75em; }
+ol { margin-left: 0; }
 
-ul li ol { margin-left: 1.5em; }
+ul li ol { margin-left: 1.25em; }
 
 dl dd { margin-left: 1.125em; }
 
@@ -350,7 +350,7 @@ ol > li p, ul > li p, ul dd, ol dd, .olist .olist, .ulist .ulist, .ulist .olist,
 
 ul.unstyled, ol.unnumbered, ul.checklist, ul.none { list-style-type: none; }
 
-ul.unstyled, ol.unnumbered, ul.checklist { margin-left: 0.625em; }
+ul.unstyled, ol.unnumbered, ul.checklist { margin-left: 0; }
 
 ul.checklist li > p:first-child > i[class^="icon-check"]:first-child, ul.checklist li > p:first-child > input[type="checkbox"]:first-child { margin-right: 0.25em; }
 

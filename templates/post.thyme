@@ -5,18 +5,30 @@
 	<body onload="prettyPrint()">
 	<div id="wrap">
 		<div th:replace="menu.thyme::menu"/>
-		<div class="container">
+		<div class="container" style="max-width: 860px;">
 	
-			<div class="page-header">
-				<h1 th:text='${content.title}'>title</h1>
-			</div>
-		
-			<p><em th:text='${#dates.format(content.date,"dd MMMM yyyy")}'>date</em></p>
-		
-			<p th:utext='${content.body}'>body</p>
-		
-			<hr />
+			<article>
+				<header class="article-header">
+					<h1 th:text='${content.title}'>Título da Postagem</h1>
+					<div class="post-meta" style="justify-content: center; margin-top: 15px;">
+						<span>📅 <em th:text='${#dates.format(content.date,"dd MMMM yyyy")}'>01 de Setembro de 2026</em></span>
+						<span th:if="${content.tags != null}">
+							🏷️ <span th:each="tag : ${content.tags}" class="tag-badge" th:text="${tag}">tag</span>
+						</span>
+					</div>
+				</header>
 			
+				<div class="article-content" th:utext='${content.body}'>
+					Conteúdo completo do post...
+				</div>
+			</article>
+		
+			<div style="margin: 40px 0; text-align: center;">
+				<a th:href='${content.rootpath+"index.html"}' class="btn-rpg">
+					← Voltar para a Página Inicial
+				</a>
+			</div>
+
 		</div>
 	</div>
 	<div th:replace="footer.thyme::footer"></div>

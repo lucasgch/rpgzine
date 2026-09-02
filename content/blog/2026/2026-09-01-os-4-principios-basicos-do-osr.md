@@ -5,7 +5,7 @@ tags=rpg, osr, filosofiadejogo, dnd
 status=published
 ~~~~~~
 
-Os 4 princípios básicos do OSR (*Old School Renaissance* ou *Old School Revival*), popularizados no texto fundamental *A Quick Primer for Old School Gaming* (de Matthew Finch) e amplamente discutidos em podcasts e conteúdos sobre o tema, resumem a filosofia de jogo do RPG estilo "escola antiga":  
+Os 4 princípios básicos do OSR (*Old School Renaissance* ou *Old School Revival*), popularizados no texto fundamental *A Quick Primer for Old School Gaming* de Matthew Finch, resumem a filosofia de jogo do RPG Old School:
 
 ### 1. Decisões do Mestre e Inteligência Prática antes das Regras (*Rulings, not Rules*)
 Em vez de buscar uma regra específica para cada ação no livro, o estilo OSR prioriza a interpretação e a decisão do Mestre no momento do jogo. O foco está na imaginação e no uso da lógica prática pelos jogadores para interagir com o cenário, permitindo maior liberdade de ação sem travar a mesa com consultas a manuais.
@@ -18,3 +18,8 @@ Os personagens começam como mortais comuns tentando sobreviver, explorar ruína
 
 ### 4. Desafios Não Balanceados e Opção de Fuga (*Game Balance is not Important*)
 O mundo não é ajustado de forma proporcional ao nível dos personagens. Um grupo de nível baixo pode facilmente se deparar com um dragão ou um inimigo devastador em uma masmorra. Lutar contra tudo o que aparece nem sempre é a melhor ideia: recuar, negociar, usar distrações ou evitar combates desnecessários são estratégias fundamentais de sobrevivência.
+
+---
+
+Texto completo disponível em: [Caves & Hexes](https://cavesandhexes.com/extras/)
+Podcast Brainstorm Cast: [#2 com Carlinhos Malvadeza e Alê Ferraz](https://open.spotify.com/episode/0285n6Rx46iNh1O9chyT6W)

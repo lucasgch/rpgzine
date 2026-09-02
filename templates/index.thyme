@@ -6,19 +6,78 @@
 	<div id="wrap">
 		<div th:replace="menu.thyme::menu"/>
 		<div class="container">
-			<div class="page-header">
-				<h1>Blog</h1>
-			</div>
 			
-			<div th:each="post : ${published_posts}">
-				<a th:href='${post.uri}' href='href'><h1 th:text='${post.title}'>title</h1></a>
-				<p th:text='${#dates.format(post.date,"dd MMMM yyyy")}'>date</p>
-				<p th:utext='${post.body}'>body</p>
+			<!-- Hero Banner -->
+			<div class="rpg-hero">
+				<h1>RPGZine</h1>
+				<p class="lead">Um zine sobre RPG de mesa com notas aleatórias, links, filosofia Old School, leituras e projetos relacionados que curto ou contribuo.</p>
+				<div>
+					<a href="javascript:void(0)" onclick="openDiceRoller()" class="btn-rpg">
+						🎲 Testar a Sorte (Rolar os dados)
+					</a>
+				</div>
 			</div>
-				
-			<hr />
-			
-			<p>Older posts are available in the <a th:href='${content.rootpath+config.archive_file}' href='href'>archive</a>.</p>
+
+			<!-- Posts Container -->
+			<div class="row">
+				<div class="col-md-9">
+					<h2 style="font-size: 1.5rem; border-bottom: 1px solid var(--border-gold); padding-bottom: 8px; margin-bottom: 25px; color: var(--accent-gold);">
+						📜 Últimas Postagens
+					</h2>
+
+					<div th:each="post : ${published_posts}" class="post-card">
+						<h2 class="post-title">
+							<a th:href='${post.uri}' th:text='${post.title}'>Título do Post</a>
+						</h2>
+						<div class="post-meta">
+							<span>📅 <em th:text='${#dates.format(post.date,"dd/MM/yyyy")}'>01/09/2026</em></span>
+							<span th:if="${post.tags != null}">
+								🏷️ <span th:each="tag : ${post.tags}" class="tag-badge" th:text="${tag}">tag</span>
+							</span>
+						</div>
+						<div class="post-body-preview" th:utext='${post.body}'>
+							Conteúdo do post...
+						</div>
+						<div style="margin-top: 20px;">
+							<a th:href='${post.uri}' class="btn-rpg">Ler Artigo Completo ⚔️</a>
+						</div>
+					</div>
+
+					<hr style="border-color: var(--border-gold);" />
+					<p style="text-align: center; color: var(--text-muted);">
+						Todas as postagens estão disponíveis no <a th:href='${content.rootpath+config.archive_file}'>Arquivo do Zine</a>.
+					</p>
+				</div>
+
+				<!-- Sidebar -->
+				<div class="col-md-3">
+					<div class="post-card" style="padding: 20px;">
+						<h3 style="margin-top: 0; font-size: 1.2rem;">Sobre o Zine</h3>
+						<p style="font-size: 0.95rem; color: var(--text-muted);">
+							Estudos, artigos, notas aleatórias e resenhas sobre RPG de mesa.
+						</p>
+					
+						<h3 style="margin-top: 0; font-size: 1.2rem;">Aú Desviante</h3>
+						<p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 12px;">
+							Escrito e editado por <span style="color: var(--accent-gold);"><strong>Lucas Godoy</strong> - <i>Aú Desviante</i></span> - jornalista, estudante de análise de sistemas e editor independente de fanzines.
+						</p>
+						<a th:href='${content.rootpath+"about.html"}' style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600;">
+							Saiba mais no Sobre →
+						</a>
+					</div>
+
+					<div class="post-card" style="padding: 20px;">
+						<h3 style="margin-top: 0; font-size: 1.2rem;">🎲 Ferramentas Rápidas</h3>
+						<p style="font-size: 0.95rem; color: var(--text-muted);">
+							Foi surpreendido e agora precisa rolar um teste rápido durante a leitura?
+						</p>
+						<button onclick="openDiceRoller()" class="btn-rpg" style="width: 100%; justify-content: center;">
+							Abrir Dado Virtual
+						</button>
+					</div>
+				</div>
+			</div>
+
 		</div>
 	</div>
 	

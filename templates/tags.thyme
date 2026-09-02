@@ -5,36 +5,24 @@
 	<body onload="prettyPrint()">
 	<div id="wrap">
 		<div th:replace="menu.thyme::menu"/>
-		<div class="container">
+		<div class="container" style="max-width: 860px;">
 
-			<div class="page-header">
-				<h1 th:text="'Tag: '+${tag}">tag</h1>
+			<div class="rpg-hero" style="padding: 30px; margin-bottom: 30px;">
+				<h1 style="border-bottom: none; margin: 0;" th:text="'🏷️ Tag: '+${tag}">Tag: RPG</h1>
+				<p class="lead" style="margin-bottom: 0;">Artigos e crônicas marcados com esta categoria.</p>
 			</div>
 
-			<th:block th:with="total_posts = *{#lists.size(tag_posts)}">
-				<th:block th:if="*{total_posts != 0}" th:with="first_post = *{tag_posts[0]}">
-					<h3 th:text="*{#dates.format(first_post.date,'MMMM yyyy')}">June 2014</h3>
-
-					<h4>
-						<span class="font-weight-bold" th:text="*{#dates.format(first_post.date,'dd')}"/> -
-						<a th:href="*{content.rootpath + first_post.uri}" th:text="*{first_post.title}" href="">Post Title</a>
-					</h4>
-
-					<th:block th:if="*{total_posts &gt; 1}" th:each="i : *{#numbers.sequence( 1, total_posts - 1)}">
-						<th:block th:with="previous_post = *{tag_posts[i - 1]}, current_post = *{tag_posts[i]}">
-							<th:block th:if="*{#dates.format(previous_post.date,'MMMM yyyy')} != *{#dates.format(current_post.date,'MMMM yyyy')}">
-								<p></p>
-								<h3 th:text="*{#dates.format(current_post.date,'MMMM yyyy')}">July 2014</h3>
-							</th:block>
-
-							<h4>
-								<span class="font-weight-bold" th:text="*{#dates.format(current_post.date,'dd')}"/> -
-								<a th:href="*{content.rootpath + current_post.uri}" th:text="*{current_post.title}" href="">Post Title</a>
-							</h4>
-						</th:block>
-					</th:block>
-				</th:block>
-			</th:block>
+			<div class="post-card">
+				<h3 style="color: var(--accent-amber); margin-top: 0; margin-bottom: 20px; font-size: 1.3rem;">
+					Postagens Marcadas com "<span th:text="${tag}">tag</span>"
+				</h3>
+				<ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
+					<li th:each="post : ${tag_posts}" style="margin-bottom: 16px; font-size: 1.1rem; border-bottom: 1px dashed rgba(212, 175, 55, 0.2); padding-bottom: 12px; display: flex; align-items: center; gap: 15px;">
+						<span style="color: var(--accent-gold); font-family: var(--font-sans); font-weight: 700; min-width: 100px;" th:text="${#dates.format(post.date,'dd/MM/yyyy')}">01/09/2026</span>
+						<a th:href="${content.rootpath + post.uri}" th:text="${post.title}" style="font-size: 1.15rem; font-weight: 600;">Título do Post</a>
+					</li>
+				</ul>
+			</div>
 
 		</div>
 	</div>

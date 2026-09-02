@@ -1,0 +1,535 @@
+/* ==========================================================================
+   RPGZine - Custom Dark Fantasy / OSR Theme
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #0d0e12;
+  --bg-surface: #151720;
+  --bg-card: #1c1e2b;
+  --bg-card-hover: #242738;
+  --border-gold: rgba(212, 175, 55, 0.2);
+  --border-gold-glow: rgba(212, 175, 55, 0.5);
+  --accent-gold: #d4af37;
+  --accent-amber: #e5a93c;
+  --accent-ruby: #c93b47;
+  --accent-emerald: #3fa373;
+  --text-main: #e3dec3;
+  --text-muted: #9aa1b2;
+  --text-heading: #f6f3eb;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Lora', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}
+
+/* Global Reset & Base */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0;
+  padding-top: 80px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#wrap {
+  flex: 1 0 auto;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-title {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  letter-spacing: 0.03em;
+  margin-top: 1.5em;
+  margin-bottom: 0.6em;
+}
+
+h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-gold);
+  padding-bottom: 0.4em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: var(--accent-amber);
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: var(--accent-gold);
+}
+
+a {
+  color: var(--accent-gold);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: var(--accent-amber);
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+/* Navigation Bar */
+.navbar-rpg {
+  background: rgba(15, 16, 21, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-gold);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  padding: 12px 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-rpg .navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--accent-gold) !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.05em;
+}
+
+.navbar-rpg .navbar-brand i,
+.navbar-rpg .navbar-brand span.d20-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--accent-amber), var(--accent-ruby));
+  color: #fff;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(229, 169, 60, 0.4);
+}
+
+.navbar-rpg .nav>li>a {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.navbar-rpg .nav>li>a:hover,
+.navbar-rpg .nav>li>a:focus,
+.navbar-rpg .nav>li.active>a {
+  color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.1);
+  border-bottom: 2px solid var(--accent-gold);
+}
+
+/* Hero Section */
+.rpg-hero {
+  background: linear-gradient(180deg, rgba(28, 30, 43, 0.8) 0%, rgba(13, 14, 18, 0.95) 100%),
+    radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: 45px 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.rpg-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+
+.rpg-hero h1 {
+  font-size: 2.8rem;
+  border-bottom: none;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--text-heading);
+}
+
+.rpg-hero p.lead {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+
+/* Post Cards */
+.post-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  margin-bottom: 30px;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: var(--shadow-card);
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-gold-glow);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.15);
+}
+
+.post-card h2.post-title {
+  margin-top: 0;
+  font-size: 1.75rem;
+}
+
+.post-card h2.post-title a {
+  color: var(--text-heading);
+}
+
+.post-card h2.post-title a:hover {
+  color: var(--accent-gold);
+}
+
+.post-meta {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.15);
+}
+
+.post-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Tag Badges */
+.tag-badge {
+  display: inline-block;
+  background: rgba(229, 169, 60, 0.12);
+  color: var(--accent-amber);
+  border: 1px solid rgba(229, 169, 60, 0.3);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-right: 6px;
+  transition: all 0.2s ease;
+}
+
+.tag-badge:hover {
+  background: var(--accent-amber);
+  color: var(--bg-dark);
+  box-shadow: 0 0 10px rgba(229, 169, 60, 0.4);
+}
+
+/* Article Page */
+.article-header {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.article-header h1 {
+  border-bottom: none;
+  font-size: 2.6rem;
+  margin-bottom: 16px;
+}
+
+.article-content {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+}
+
+/* Discrete Horizontal Dividers */
+hr,
+.article-content hr {
+  border: 0;
+  height: 1px;
+  background: var(--border-gold);
+  margin: 16px 0 12px 0;
+  opacity: 0.6;
+}
+
+/* Article Lists & References (Override asciidoctor.css margin-left: 1.5em) */
+.article-content ul,
+.article-content ol {
+  margin-left: 0 !important;
+  padding-left: 1.2rem !important;
+  margin-bottom: 24px;
+}
+
+.article-content ul li,
+.article-content ol li {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  margin-bottom: 8px;
+}
+
+/* Reference / Source list following hr (Aligned 100% flush to left edge) */
+.article-content hr+ul,
+.article-content hr+ol,
+.article-content hr+p {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 18px;
+}
+
+.article-content hr+ul li,
+.article-content hr+ol li {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+  list-style-type: none !important;
+}
+
+
+
+
+
+/* Blockquotes (Grimoire / Parchment style) */
+blockquote {
+  background: rgba(28, 30, 43, 0.6);
+  border-left: 4px solid var(--accent-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 16px 24px;
+  margin: 24px 0;
+  font-style: italic;
+  color: #efe8d8;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Pre & Code */
+pre {
+  background-color: #0b0c10 !important;
+  border: 1px solid var(--border-gold) !important;
+  border-radius: var(--radius-sm);
+  color: #dcdcdc;
+  padding: 18px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.95rem;
+  overflow-x: auto;
+}
+
+code {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--accent-amber);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* Dice Roller Widget Component */
+.dice-roller-btn {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(201, 59, 71, 0.2));
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold) !important;
+  border-radius: 20px;
+  padding: 6px 16px !important;
+  margin-left: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700 !important;
+}
+
+.dice-roller-btn:hover {
+  background: linear-gradient(135deg, var(--accent-amber), var(--accent-ruby)) !important;
+  color: #fff !important;
+  box-shadow: 0 0 12px rgba(229, 169, 60, 0.5);
+}
+
+.dice-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.dice-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dice-modal {
+  background: var(--bg-card);
+  border: 2px solid var(--accent-gold);
+  border-radius: var(--radius-md);
+  width: 90%;
+  max-width: 450px;
+  padding: 30px;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+  text-align: center;
+  position: relative;
+}
+
+.dice-modal .close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.dice-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.dice-chip {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold);
+  color: var(--text-heading);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dice-chip:hover {
+  border-color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.15);
+  transform: scale(1.05);
+}
+
+.dice-result-box {
+  background: #0d0e12;
+  border: 1px dashed var(--accent-amber);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  margin-top: 15px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dice-result-num {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--accent-gold);
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+/* Footer */
+#footer {
+  background: #090a0d;
+  border-top: 1px solid var(--border-gold);
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  padding: 35px 0;
+  margin-top: 60px;
+  text-align: center;
+}
+
+#footer a {
+  color: var(--accent-gold);
+}
+
+/* Pagination / Read More */
+.btn-rpg {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.btn-rpg:hover {
+  background: var(--accent-gold);
+  color: var(--bg-dark);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .rpg-hero h1 {
+    font-size: 2rem;
+  }
+
+  .article-content {
+    padding: 20px;
+  }
+
+  .dice-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
