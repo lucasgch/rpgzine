@@ -1,6 +1,6 @@
 # RPGZine
 
-Um zine online estático focado em RPG de mesa, inspirado na filosofia *Old School*. O site é gerado usando **JBake** com **Thymeleaf** e hospedado no **GitHub Pages**.
+Um zine online estático focado em RPG de mesa, inspirado na filosofia *Old School*. O site é gerado usando **JBake** com **Thymeleaf** e hospedado no **[GitHub Pages](https://lucasgch.github.io/rpgzine/)**.
 
 ---
 
