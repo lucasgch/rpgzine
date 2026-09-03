@@ -167,31 +167,33 @@ status=published
         message: document.getElementById('contact-message').value
       };
 
-      fetch('https://send.pageclip.co/8Uf79FDadK03ApYlYyCXgFmUniuGVMIB/Contato', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-REQMETHOD': 'form-v1',
-          'X-REQTRANSPORT': 'xhr',
-          'X-HASFETCH': 'true'
-        },
-        body: JSON.stringify(payload)
-      })
-        .then(function (res) {
-          if (res.ok) {
-            btn.querySelector('span').textContent = 'Enviado!';
-            setTimeout(function () {
-              window.location.href = window.location.pathname + '?enviado=1';
-            }, 600);
-          } else {
-            throw new Error(res.status);
-          }
-        })
-        .catch(function () {
+      var request = new XMLHttpRequest();
+      request.open('POST', 'https://send.pageclip.co/8Uf79FDadK03ApYlYyCXgFmUniuGVMIB/Contato');
+      request.responseType = 'json';
+      request.setRequestHeader('Content-Type', 'application/json');
+      request.setRequestHeader('X-REQMETHOD', 'form-v1');
+      request.setRequestHeader('X-REQTRANSPORT', 'xhr');
+      request.setRequestHeader('X-HASFETCH', 'true');
+      request.onreadystatechange = function () {
+        if (request.readyState !== 4) return;
+
+        if (request.status === 200) {
+          btn.querySelector('span').textContent = 'Enviado!';
+          setTimeout(function () {
+            window.location.href = window.location.pathname + '?enviado=1';
+          }, 600);
+        } else {
           btn.disabled = false;
           btn.querySelector('span').textContent = 'Enviar Mensagem';
           showError('Erro ao enviar. Verifique sua conexão e tente novamente.');
-        });
+        }
+      };
+      request.onerror = function () {
+        btn.disabled = false;
+        btn.querySelector('span').textContent = 'Enviar Mensagem';
+        showError('Erro ao enviar. Verifique sua conexão e tente novamente.');
+      };
+      request.send(JSON.stringify(payload));
     });
   });
 })();
