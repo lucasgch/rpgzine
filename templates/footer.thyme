@@ -19,6 +19,7 @@
 		    <script th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:src="${rootpath} + 'js/bootstrap.min.js'"></script>
 		    <script th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:src="${rootpath} + 'js/prettify.js'"></script>
 		    <script th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:src="${rootpath} + 'js/dice-roller.js'"></script>
+		    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
     
     	</div>
   	</body>

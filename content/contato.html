@@ -1,0 +1,104 @@
+title=Contato
+date=2026-09-03
+type=page
+status=published
+~~~~~~
+
+<!-- Mensagem de sucesso (visível apenas quando ?enviado=1 está na URL) -->
+<div id="contact-success" class="rpg-contact-success" style="display:none;">
+  <div class="contact-success-icon">✉️</div>
+  <h2>Mensagem enviada!</h2>
+  <p>Obrigado pelo contato. Assim que possível responderei por aqui ou pelo e-mail informado.</p>
+  <a href="contato.html" class="btn-rpg" style="margin-top: 16px; display: inline-flex;">Enviar outra mensagem</a>
+</div>
+
+<!-- Formulário (oculto após envio) -->
+<div id="contact-form-wrap">
+  <div class="rpg-contact-intro">
+    <p>Tem uma dúvida sobre OSR? Quer compartilhar um relato de mesa, sugerir um tema ou apenas bater um papo sobre RPG? Use o formulário abaixo. As mensagens chegam diretamente para mim.</p>
+  </div>
+
+  <!-- Não usa class pageclip-form — inicializamos manualmente via JS para ter callback de sucesso -->
+  <form action="https://send.pageclip.co/8Uf79FDadK03ApYlYyCXgFmUniuGVMIB/Contato" method="post" id="contact-form" class="rpg-comments-form">
+
+    <div class="rpg-form-row">
+      <div class="rpg-form-group">
+        <label for="contact-name">Nome / Alcunha <span class="required-star">*</span></label>
+        <input type="text" id="contact-name" name="name" placeholder="Ex: Sir Percival" required class="rpg-input" />
+      </div>
+      <div class="rpg-form-group">
+        <label for="contact-email">E-mail <span class="optional-text">(opcional)</span></label>
+        <input type="email" id="contact-email" name="email" placeholder="seu@email.com" class="rpg-input" />
+      </div>
+    </div>
+
+    <div class="rpg-form-group">
+      <label for="contact-subject">Assunto <span class="required-star">*</span></label>
+      <input type="text" id="contact-subject" name="subject" placeholder="Ex: Dúvida sobre OSR, Sugestão de pauta..." required class="rpg-input" />
+    </div>
+
+    <div class="rpg-form-group">
+      <label for="contact-message">Mensagem <span class="required-star">*</span></label>
+      <textarea id="contact-message" name="message" rows="6" placeholder="Escreva sua mensagem aqui..." required class="rpg-input"></textarea>
+    </div>
+
+    <div class="rpg-form-actions">
+      <button type="submit" id="contact-submit" class="pageclip-form__submit btn-rpg-submit">
+        <span>Enviar Mensagem</span>
+      </button>
+    </div>
+
+  </form>
+</div>
+
+<script>
+  // Mostra mensagem de sucesso se URL contém ?enviado=1
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('enviado') === '1') {
+      document.getElementById('contact-form-wrap').style.display = 'none';
+      var el = document.getElementById('contact-success');
+      el.style.display = 'flex';
+      el.style.opacity = '0';
+      setTimeout(function () { el.style.opacity = '1'; }, 50);
+    }
+  })();
+
+  // Inicializa Pageclip manualmente após o script carregar
+  // pageclip.js é carregado no footer — usamos window.onload para garantir
+  window.addEventListener('load', function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+
+    if (typeof Pageclip !== 'undefined') {
+      Pageclip.form(form, {
+        onResponse: function (error, response) {
+          if (!error) {
+            // Sucesso: redireciona para a mesma página com flag na URL
+            window.location.href = window.location.pathname + '?enviado=1';
+          }
+          return false; // impede comportamento padrão do Pageclip
+        }
+      });
+    } else {
+      // Fallback: submissão HTML nativa se Pageclip não carregar
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = document.getElementById('contact-submit');
+        btn.disabled = true;
+        btn.querySelector('span').textContent = 'Enviando...';
+
+        var data = new FormData(form);
+        fetch(form.action, { method: 'POST', body: data })
+          .then(function () {
+            window.location.href = window.location.pathname + '?enviado=1';
+          })
+          .catch(function () {
+            btn.disabled = false;
+            btn.querySelector('span').textContent = 'Enviar Mensagem';
+            alert('Erro ao enviar. Tente novamente.');
+          });
+      });
+    }
+  });
+</script>

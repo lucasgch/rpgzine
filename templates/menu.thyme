@@ -23,6 +23,7 @@
             <li><a th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'index.html'">Início</a></li>
             <li><a th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+${config.archive_file}">Arquivo</a></li>
             <li><a th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'about.html'">Sobre</a></li>
+            <li><a th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'contato.html'">Contato</a></li>
             <li><a th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+${config.feed_file}">RSS Feed</a></li>
             <li>
               <a href="javascript:void(0)" onclick="openDiceRoller()" class="dice-roller-btn">

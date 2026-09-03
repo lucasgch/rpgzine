@@ -1,0 +1,39 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<div th:fragment="comments" class="rpg-comments-container">
+			<div class="rpg-comments-header">
+				<h3>💬 Deixe seu Comentário</h3>
+				<p class="comments-subtitle">Dúvidas, teorias, relatos de mesa ou feedbacks? Envie sua mensagem!</p>
+			</div>
+
+			<form action="https://send.pageclip.co/8Uf79FDadK03ApYlYyCXgFmUniuGVMIB/Contato" class="pageclip-form rpg-comments-form" method="post">
+				<!-- Contexto do post ou página enviado ao Pageclip -->
+				<input type="hidden" name="post_title" th:value="${content != null ? content.title : 'Página sem título'}" />
+
+				<div class="rpg-form-row">
+					<div class="rpg-form-group">
+						<label for="comment-name">Nome / Alcunha <span class="required-star">*</span></label>
+						<input type="text" id="comment-name" name="name" placeholder="Ex: Sir Percival" required="required" class="rpg-input" />
+					</div>
+					<div class="rpg-form-group">
+						<label for="comment-email">E-mail <span class="optional-text">(opcional)</span></label>
+						<input type="email" id="comment-email" name="email" placeholder="seu.email@exemplo.com" class="rpg-input" />
+					</div>
+				</div>
+
+				<div class="rpg-form-group">
+					<label for="comment-body">Comentário <span class="required-star">*</span></label>
+					<textarea id="comment-body" name="comment" rows="4" placeholder="Escreva seu comentário aqui..." required="required" class="rpg-input"></textarea>
+				</div>
+
+				<div class="rpg-form-actions">
+					<button type="submit" class="pageclip-form__submit btn-rpg-submit">
+						<span>Enviar Comentário</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
