@@ -1,4 +1,4 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 	<head th:replace="header.thyme::head"/>
@@ -9,8 +9,8 @@
 			
 			<!-- Hero Banner -->
 			<div class="rpg-hero">
-				<h1>RPGZine</h1>
-				<p class="lead">Um zine sobre RPG de mesa com notas aleatórias, links, filosofia Old School, leituras e projetos relacionados que curto ou contribuo.</p>
+				<h1 class="sr-only">RPGZine</h1>
+				<p class="lead">Um fanzine digital sobre RPG de mesa com notas aleatórias, links, filosofia Old School, leituras e projetos relacionados que curto ou contribuo.</p>
 				<div>
 					<a href="javascript:void(0)" onclick="openDiceRoller()" class="btn-rpg">
 						🎲 Testar a Sorte (Rolar os dados)
@@ -21,9 +21,9 @@
 			<!-- Posts Container -->
 			<div class="row">
 				<div class="col-md-9">
-					<h2 style="font-size: 1.5rem; border-bottom: 1px solid var(--border-gold); padding-bottom: 8px; margin-bottom: 25px; color: var(--accent-gold);">
-						📜 Últimas Postagens
-					</h2>
+					<div class="section-header">
+						<h3>Últimas Postagens</h3>
+					</div>
 
 					<div th:each="post : ${published_posts}" class="post-card">
 						<h2 class="post-title">
@@ -39,7 +39,7 @@
 							Conteúdo do post...
 						</div>
 						<div style="margin-top: 20px;">
-							<a th:href='${post.uri}' class="btn-rpg">Ler Artigo Completo ⚔️</a>
+							<a th:href='${post.uri}' class="btn-rpg">Ler Artigo Completo</a>
 						</div>
 					</div>
 
@@ -52,23 +52,23 @@
 				<!-- Sidebar -->
 				<div class="col-md-3">
 					<div class="post-card" style="padding: 20px;">
-						<h3 style="margin-top: 0; font-size: 1.2rem;">Sobre o Zine</h3>
-						<p style="font-size: 0.95rem; color: var(--text-muted);">
+						<h3 style="margin-top: 0; font-size: var(--fs-h3);">Sobre o Zine</h3>
+						<p style="font-size: var(--fs-body); color: var(--text-muted);">
 							Estudos, artigos, notas aleatórias e resenhas sobre RPG de mesa.
 						</p>
 					
-						<h3 style="margin-top: 0; font-size: 1.2rem;">Aú Desviante</h3>
-						<p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 12px;">
+						<h3 style="margin-top: 0; font-size: var(--fs-h3);">Aú Desviante</h3>
+						<p style="font-size: var(--fs-body); color: var(--text-muted); margin-bottom: 12px;">
 							Escrito e editado por <span style="color: var(--accent-gold);"><strong>Lucas Godoy</strong> - <i>Aú Desviante</i></span> - jornalista, estudante de análise de sistemas e editor independente de fanzines.
 						</p>
-						<a th:href='${content.rootpath+"about.html"}' style="font-size: 0.85rem; color: var(--accent-gold); font-weight: 600;">
+						<a th:href='${content.rootpath+"about.html"}' style="font-size: 1.1rem; color: var(--accent-gold); font-weight: 600;">
 							Saiba mais no Sobre →
 						</a>
 					</div>
 
 					<div class="post-card" style="padding: 20px;">
-						<h3 style="margin-top: 0; font-size: 1.2rem;">🎲 Ferramentas Rápidas</h3>
-						<p style="font-size: 0.95rem; color: var(--text-muted);">
+						<h3 style="margin-top: 0; font-size: var(--fs-h3);">🎲 Ferramentas Rápidas</h3>
+						<p style="font-size: var(--fs-body); color: var(--text-muted);">
 							Foi surpreendido e agora precisa rolar um teste rápido durante a leitura?
 						</p>
 						<button onclick="openDiceRoller()" class="btn-rpg" style="width: 100%; justify-content: center;">
