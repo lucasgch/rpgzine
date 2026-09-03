@@ -160,16 +160,20 @@ status=published
       btn.disabled = true;
       btn.querySelector('span').textContent = 'Enviando...';
 
-      var payload = new URLSearchParams();
-      payload.append('name',    document.getElementById('contact-name').value);
-      payload.append('email',   document.getElementById('contact-email').value);
-      payload.append('subject', document.getElementById('contact-subject').value);
-      payload.append('message', document.getElementById('contact-message').value);
+      var payload = {
+        name:    document.getElementById('contact-name').value,
+        email:   document.getElementById('contact-email').value,
+        subject: document.getElementById('contact-subject').value,
+        message: document.getElementById('contact-message').value
+      };
 
       fetch('https://send.pageclip.co/8Uf79FDadK03ApYlYyCXgFmUniuGVMIB/Contato', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: payload.toString()
+        headers: {
+          'Content-Type': 'application/json',
+          'X-REQMETHOD': 'form-v1'
+        },
+        body: JSON.stringify(payload)
       })
         .then(function (res) {
           if (res.ok) {
