@@ -58,7 +58,7 @@ status=published
       <label for="contact-captcha">Verificação <span class="required-star">*</span></label>
       <div class="rpg-captcha-row">
         <span id="captcha-question" class="rpg-captcha-question">…</span>
-        <input type="text" id="contact-captcha" placeholder="Resposta" class="rpg-input rpg-captcha-input" autocomplete="off" inputmode="numeric" />
+        <input type="number" id="contact-captcha" placeholder="Resposta" class="rpg-input rpg-captcha-input" autocomplete="off" inputmode="numeric" min="0" max="18" step="1" required />
         <button type="button" id="captcha-refresh" class="rpg-captcha-refresh" title="Nova pergunta" aria-label="Gerar nova pergunta">↺</button>
       </div>
       <span id="captcha-error" class="rpg-captcha-error" style="display:none;"></span>
@@ -137,8 +137,9 @@ status=published
     }
 
     // CAPTCHA
-    var ans = parseInt(document.getElementById('contact-captcha').value, 10);
-    if (isNaN(ans) || ans !== captchaAnswer) {
+    var captchaValue = document.getElementById('contact-captcha').value.trim();
+    var ans = Number(captchaValue);
+    if (!/^\d+$/.test(captchaValue) || ans !== captchaAnswer) {
       showError('Resposta incorreta. Tente novamente.');
       document.getElementById('contact-captcha').focus();
       generateCaptcha();
