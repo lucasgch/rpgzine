@@ -634,6 +634,64 @@ code {
   margin: 0;
 }
 
+/* Anti-spam: Honeypot field — visually hidden, accessible */
+.rpg-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Anti-spam: Math CAPTCHA */
+.rpg-captcha-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rpg-captcha-question {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  white-space: nowrap;
+  min-width: 110px;
+  text-align: center;
+}
+
+.rpg-captcha-input {
+  max-width: 100px;
+}
+
+.rpg-captcha-refresh {
+  background: transparent;
+  border: 1px solid var(--border-gold);
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.rpg-captcha-refresh:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.rpg-captcha-error {
+  color: var(--accent-ruby);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
 /* Contact page - success message */
 .rpg-contact-success {
   display: flex;

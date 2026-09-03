@@ -18,13 +18,18 @@ status=published
     <p>Tem uma dúvida sobre OSR? Quer compartilhar um relato de mesa, sugerir um tema ou apenas bater um papo sobre RPG? Use o formulário abaixo. As mensagens chegam diretamente para mim.</p>
   </div>
 
-  <!-- Não usa class pageclip-form — inicializamos manualmente via JS para ter callback de sucesso -->
   <form action="https://send.pageclip.co/8Uf79FDadK03ApYlYyCXgFmUniuGVMIB/Contato" method="post" id="contact-form" class="rpg-comments-form">
+
+    <!-- ① HONEYPOT: campo invisível — humanos não veem, bots preenchem -->
+    <div class="rpg-honeypot" aria-hidden="true">
+      <label for="contact-url">Não preencha este campo</label>
+      <input type="text" id="contact-url" name="url" tabindex="-1" autocomplete="off" />
+    </div>
 
     <div class="rpg-form-row">
       <div class="rpg-form-group">
         <label for="contact-name">Nome / Alcunha <span class="required-star">*</span></label>
-        <input type="text" id="contact-name" name="name" placeholder="Ex: Sir Percival" required class="rpg-input" />
+        <input type="text" id="contact-name" name="name" placeholder="Ex: Kaelen" required class="rpg-input" />
       </div>
       <div class="rpg-form-group">
         <label for="contact-email">E-mail <span class="optional-text">(opcional)</span></label>
@@ -42,6 +47,17 @@ status=published
       <textarea id="contact-message" name="message" rows="6" placeholder="Escreva sua mensagem aqui..." required class="rpg-input"></textarea>
     </div>
 
+    <!-- ③ CAPTCHA MATEMÁTICO: validado localmente, não enviado ao Pageclip -->
+    <div class="rpg-form-group">
+      <label for="contact-captcha" id="captcha-label">Verificação <span class="required-star">*</span></label>
+      <div class="rpg-captcha-row">
+        <span id="captcha-question" class="rpg-captcha-question">…</span>
+        <input type="text" id="contact-captcha" placeholder="Resposta" required class="rpg-input rpg-captcha-input" autocomplete="off" inputmode="numeric" />
+        <button type="button" id="captcha-refresh" class="rpg-captcha-refresh" title="Nova pergunta" aria-label="Gerar nova pergunta">↺</button>
+      </div>
+      <span id="captcha-error" class="rpg-captcha-error" style="display:none;">Resposta incorreta. Tente novamente.</span>
+    </div>
+
     <div class="rpg-form-actions">
       <button type="submit" id="contact-submit" class="pageclip-form__submit btn-rpg-submit">
         <span>Enviar Mensagem</span>
@@ -52,44 +68,103 @@ status=published
 </div>
 
 <script>
-  // Mostra mensagem de sucesso se URL contém ?enviado=1
-  (function () {
-    var params = new URLSearchParams(window.location.search);
-    if (params.get('enviado') === '1') {
-      document.getElementById('contact-form-wrap').style.display = 'none';
-      var el = document.getElementById('contact-success');
-      el.style.display = 'flex';
-      el.style.opacity = '0';
-      setTimeout(function () { el.style.opacity = '1'; }, 50);
-    }
-  })();
+(function () {
+  /* ── ① Verificação de sucesso por query param ── */
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('enviado') === '1') {
+    document.getElementById('contact-form-wrap').style.display = 'none';
+    var el = document.getElementById('contact-success');
+    el.style.display = 'flex';
+    el.style.opacity = '0';
+    setTimeout(function () { el.style.opacity = '1'; }, 50);
+    return; // não precisa inicializar o resto
+  }
 
-  // Inicializa Pageclip manualmente após o script carregar
-  // pageclip.js é carregado no footer — usamos window.onload para garantir
+  /* ── ② Timing: registra quando a página carregou ── */
+  var pageLoadTime = Date.now();
+
+  /* ── ③ CAPTCHA matemático ── */
+  var captchaAnswer = 0;
+
+  function generateCaptcha() {
+    var ops = ['+', '-', '×'];
+    var op  = ops[Math.floor(Math.random() * ops.length)];
+    var a, b, result;
+
+    if (op === '+') {
+      a = Math.floor(Math.random() * 9) + 1;
+      b = Math.floor(Math.random() * 9) + 1;
+      result = a + b;
+    } else if (op === '-') {
+      a = Math.floor(Math.random() * 8) + 3;
+      b = Math.floor(Math.random() * (a - 1)) + 1;
+      result = a - b;
+    } else { // ×
+      a = Math.floor(Math.random() * 5) + 2;
+      b = Math.floor(Math.random() * 5) + 2;
+      result = a * b;
+    }
+
+    captchaAnswer = result;
+    document.getElementById('captcha-question').textContent = a + ' ' + op + ' ' + b + ' = ?';
+    document.getElementById('contact-captcha').value = '';
+    document.getElementById('captcha-error').style.display = 'none';
+  }
+
+  generateCaptcha();
+  document.getElementById('captcha-refresh').addEventListener('click', generateCaptcha);
+
+  /* ── Validação anti-spam antes de enviar ── */
+  function validateSpam() {
+    // Honeypot: se preenchido, silenciosamente finge sucesso
+    var honeypot = document.getElementById('contact-url').value;
+    if (honeypot !== '') return false;
+
+    // Timing: envio em menos de 3 segundos = provável bot
+    var elapsed = (Date.now() - pageLoadTime) / 1000;
+    if (elapsed < 3) return false;
+
+    // CAPTCHA
+    var userAnswer = parseInt(document.getElementById('contact-captcha').value, 10);
+    if (isNaN(userAnswer) || userAnswer !== captchaAnswer) {
+      document.getElementById('captcha-error').style.display = 'block';
+      document.getElementById('contact-captcha').focus();
+      generateCaptcha(); // gera nova pergunta após falha
+      return false;
+    }
+
+    return true;
+  }
+
+  /* ── Inicializa Pageclip após todos os scripts carregarem ── */
   window.addEventListener('load', function () {
     var form = document.getElementById('contact-form');
     if (!form) return;
 
     if (typeof Pageclip !== 'undefined') {
       Pageclip.form(form, {
-        onResponse: function (error, response) {
+        onSubmit: function () {
+          // Retorna true para CANCELAR o envio se spam detectado
+          return !validateSpam();
+        },
+        onResponse: function (error) {
           if (!error) {
-            // Sucesso: redireciona para a mesma página com flag na URL
             window.location.href = window.location.pathname + '?enviado=1';
           }
-          return false; // impede comportamento padrão do Pageclip
+          return false;
         }
       });
     } else {
-      // Fallback: submissão HTML nativa se Pageclip não carregar
+      // Fallback fetch se Pageclip não carregar
       form.addEventListener('submit', function (e) {
         e.preventDefault();
+        if (!validateSpam()) return;
+
         var btn = document.getElementById('contact-submit');
         btn.disabled = true;
         btn.querySelector('span').textContent = 'Enviando...';
 
-        var data = new FormData(form);
-        fetch(form.action, { method: 'POST', body: data })
+        fetch(form.action, { method: 'POST', body: new FormData(form) })
           .then(function () {
             window.location.href = window.location.pathname + '?enviado=1';
           })
@@ -101,4 +176,5 @@ status=published
       });
     }
   });
+})();
 </script>
