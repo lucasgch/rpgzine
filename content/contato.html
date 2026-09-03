@@ -47,19 +47,19 @@ status=published
       <textarea id="contact-message" name="message" rows="6" placeholder="Escreva sua mensagem aqui..." required class="rpg-input"></textarea>
     </div>
 
-    <!-- ③ CAPTCHA MATEMÁTICO: validado localmente, não enviado ao Pageclip -->
+    <!-- ③ CAPTCHA MATEMÁTICO: sem atributo "name" — não vai no FormData enviado ao Pageclip -->
     <div class="rpg-form-group">
-      <label for="contact-captcha" id="captcha-label">Verificação <span class="required-star">*</span></label>
+      <label for="contact-captcha">Verificação <span class="required-star">*</span></label>
       <div class="rpg-captcha-row">
         <span id="captcha-question" class="rpg-captcha-question">…</span>
-        <input type="text" id="contact-captcha" placeholder="Resposta" required class="rpg-input rpg-captcha-input" autocomplete="off" inputmode="numeric" />
+        <input type="text" id="contact-captcha" placeholder="Resposta" class="rpg-input rpg-captcha-input" autocomplete="off" inputmode="numeric" />
         <button type="button" id="captcha-refresh" class="rpg-captcha-refresh" title="Nova pergunta" aria-label="Gerar nova pergunta">↺</button>
       </div>
       <span id="captcha-error" class="rpg-captcha-error" style="display:none;">Resposta incorreta. Tente novamente.</span>
     </div>
 
     <div class="rpg-form-actions">
-      <button type="submit" id="contact-submit" class="pageclip-form__submit btn-rpg-submit">
+      <button type="submit" id="contact-submit" class="btn-rpg-submit">
         <span>Enviar Mensagem</span>
       </button>
     </div>
@@ -77,7 +77,7 @@ status=published
     el.style.display = 'flex';
     el.style.opacity = '0';
     setTimeout(function () { el.style.opacity = '1'; }, 50);
-    return; // não precisa inicializar o resto
+    return; // interrompe o restante do script
   }
 
   /* ── ② Timing: registra quando a página carregou ── */
@@ -114,67 +114,70 @@ status=published
   generateCaptcha();
   document.getElementById('captcha-refresh').addEventListener('click', generateCaptcha);
 
-  /* ── Validação anti-spam antes de enviar ── */
+  /* ── Validação anti-spam ── */
   function validateSpam() {
-    // Honeypot: se preenchido, silenciosamente finge sucesso
-    var honeypot = document.getElementById('contact-url').value;
-    if (honeypot !== '') return false;
+    // Honeypot: campo preenchido = bot
+    if (document.getElementById('contact-url').value !== '') return false;
 
-    // Timing: envio em menos de 3 segundos = provável bot
-    var elapsed = (Date.now() - pageLoadTime) / 1000;
-    if (elapsed < 3) return false;
+    // Timing: menos de 3s desde o carregamento = bot
+    if ((Date.now() - pageLoadTime) / 1000 < 3) return false;
 
-    // CAPTCHA
+    // CAPTCHA: resposta inválida
     var userAnswer = parseInt(document.getElementById('contact-captcha').value, 10);
     if (isNaN(userAnswer) || userAnswer !== captchaAnswer) {
+      document.getElementById('captcha-error').textContent = 'Resposta incorreta. Tente novamente.';
       document.getElementById('captcha-error').style.display = 'block';
       document.getElementById('contact-captcha').focus();
-      generateCaptcha(); // gera nova pergunta após falha
+      generateCaptcha();
       return false;
     }
 
     return true;
   }
 
-  /* ── Inicializa Pageclip após todos os scripts carregarem ── */
+  /* ── Submissão 100% controlada via fetch — Pageclip.form() não é usado ── */
   window.addEventListener('load', function () {
     var form = document.getElementById('contact-form');
-    if (!form) return;
+    var btn  = document.getElementById('contact-submit');
+    if (!form || !btn) return;
 
-    if (typeof Pageclip !== 'undefined') {
-      Pageclip.form(form, {
-        onSubmit: function () {
-          // Retorna true para CANCELAR o envio se spam detectado
-          return !validateSpam();
-        },
-        onResponse: function (error) {
-          if (!error) {
-            window.location.href = window.location.pathname + '?enviado=1';
+    // useCapture=true garante que nosso listener roda ANTES de qualquer outro
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+
+      if (!validateSpam()) return;
+
+      // Estado: carregando
+      btn.disabled = true;
+      btn.classList.add('pageclip-form__submit--loading');
+      btn.querySelector('span').textContent = 'Enviando...';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then(function (res) {
+          if (res.ok) {
+            btn.classList.remove('pageclip-form__submit--loading');
+            btn.classList.add('pageclip-form__submit--success');
+            btn.querySelector('span').textContent = 'Enviado!';
+            setTimeout(function () {
+              window.location.href = window.location.pathname + '?enviado=1';
+            }, 800);
+          } else {
+            throw new Error('status ' + res.status);
           }
-          return false;
-        }
-      });
-    } else {
-      // Fallback fetch se Pageclip não carregar
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (!validateSpam()) return;
-
-        var btn = document.getElementById('contact-submit');
-        btn.disabled = true;
-        btn.querySelector('span').textContent = 'Enviando...';
-
-        fetch(form.action, { method: 'POST', body: new FormData(form) })
-          .then(function () {
-            window.location.href = window.location.pathname + '?enviado=1';
-          })
-          .catch(function () {
-            btn.disabled = false;
-            btn.querySelector('span').textContent = 'Enviar Mensagem';
-            alert('Erro ao enviar. Tente novamente.');
-          });
-      });
-    }
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.classList.remove('pageclip-form__submit--loading');
+          btn.querySelector('span').textContent = 'Enviar Mensagem';
+          document.getElementById('captcha-error').textContent = 'Erro ao enviar. Tente novamente mais tarde.';
+          document.getElementById('captcha-error').style.display = 'block';
+        });
+    }, true); // true = captura no modo capture, antes dos listeners bubbling do Pageclip
   });
 })();
 </script>
