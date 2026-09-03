@@ -171,7 +171,9 @@ status=published
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-REQMETHOD': 'form-v1'
+          'X-REQMETHOD': 'form-v1',
+          'X-REQTRANSPORT': 'xhr',
+          'X-HASFETCH': 'true'
         },
         body: JSON.stringify(payload)
       })
