@@ -22,4 +22,4 @@ O mundo não é ajustado de forma proporcional ao nível dos personagens. Um gru
 ---
 
 Texto completo de Matthew Finch disponível em: [Caves & Hexes](https://cavesandhexes.com/extras/)
-Podcast Brainstorm Cast: [#2 com Carlinhos Malvadeza e Alê Ferraz](https://open.spotify.com/episode/0285n6Rx46iNh1O9chyT6W)
+Explicado tim tim por tim tim no Podcast Brainstorm Cast: [#2 com Carlinhos Malvadeza e Alê Ferraz](https://open.spotify.com/episode/0285n6Rx46iNh1O9chyT6W)
