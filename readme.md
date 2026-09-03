@@ -10,6 +10,7 @@ Um zine online estático focado em RPG de mesa, inspirado na filosofia *Old Scho
 * **[Thymeleaf](https://www.thymeleaf.org/):** Motor de renderização de templates HTML5.
 * **Markdown:** Formato para escrita das postagens e páginas.
 * **GitHub Actions:** Pipeline de CI/CD para compilação e publicação automática.
+* **Pageclip:** Formulário de contato integrado ao site.
 
 ---
 
