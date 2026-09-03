@@ -8,7 +8,7 @@ status=published
 <div id="contact-success" class="rpg-contact-success" style="display:none;">
   <div class="contact-success-icon">✉️</div>
   <h2>Mensagem enviada!</h2>
-  <p>Obrigado pelo contato. Assim que possível responderei por aqui ou pelo e-mail informado.</p>
+  <p>Obrigado pelo contato. Assim que possível responderei pelo e-mail informado.</p>
   <a href="contato.html" class="btn-rpg" style="margin-top: 16px; display: inline-flex;">Enviar outra mensagem</a>
 </div>
 
@@ -38,8 +38,8 @@ status=published
         <input type="text" id="contact-name" name="name" placeholder="Ex: Kaelen" class="rpg-input" />
       </div>
       <div class="rpg-form-group">
-        <label for="contact-email">E-mail <span class="optional-text">(opcional)</span></label>
-        <input type="email" id="contact-email" name="email" placeholder="seu@email.com" class="rpg-input" />
+        <label for="contact-email">E-mail <span class="required-star">*</span></label>
+        <input type="email" id="contact-email" name="email" placeholder="seu@email.com" class="rpg-input" required />
       </div>
     </div>
 
@@ -129,9 +129,10 @@ status=published
 
     // Campos obrigatórios
     var name = (document.getElementById('contact-name').value || '').trim();
+    var email = (document.getElementById('contact-email').value || '').trim();
     var subject = (document.getElementById('contact-subject').value || '').trim();
     var message = (document.getElementById('contact-message').value || '').trim();
-    if (!name || !subject || !message) {
+    if (!name || !email || !subject || !message) {
       showError('Preencha todos os campos obrigatórios (*).');
       return false;
     }
