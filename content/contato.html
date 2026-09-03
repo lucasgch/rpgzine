@@ -18,9 +18,15 @@ status=published
     <p>Tem uma dúvida sobre OSR? Quer compartilhar um relato de mesa, sugerir um tema ou apenas bater um papo sobre RPG? Use o formulário abaixo. As mensagens chegam diretamente para mim.</p>
   </div>
 
-  <form action="https://send.pageclip.co/8Uf79FDadK03ApYlYyCXgFmUniuGVMIB/Contato" method="post" id="contact-form" class="rpg-comments-form">
+  <!--
+    IMPORTANTE: Este formulário NÃO usa type="submit".
+    O botão é type="button" — o envio só ocorre via fetch() no JS,
+    após todas as validações anti-spam passarem.
+    Isso impede qualquer envio nativo ou interceptação do Pageclip.
+  -->
+  <form id="contact-form" class="rpg-comments-form" novalidate>
 
-    <!-- ① HONEYPOT: campo invisível — humanos não veem, bots preenchem -->
+    <!-- HONEYPOT: campo invisível — humanos não veem, bots preenchem -->
     <div class="rpg-honeypot" aria-hidden="true">
       <label for="contact-url">Não preencha este campo</label>
       <input type="text" id="contact-url" name="url" tabindex="-1" autocomplete="off" />
@@ -29,7 +35,7 @@ status=published
     <div class="rpg-form-row">
       <div class="rpg-form-group">
         <label for="contact-name">Nome / Alcunha <span class="required-star">*</span></label>
-        <input type="text" id="contact-name" name="name" placeholder="Ex: Kaelen" required class="rpg-input" />
+        <input type="text" id="contact-name" name="name" placeholder="Ex: Kaelen" class="rpg-input" />
       </div>
       <div class="rpg-form-group">
         <label for="contact-email">E-mail <span class="optional-text">(opcional)</span></label>
@@ -39,15 +45,15 @@ status=published
 
     <div class="rpg-form-group">
       <label for="contact-subject">Assunto <span class="required-star">*</span></label>
-      <input type="text" id="contact-subject" name="subject" placeholder="Ex: Dúvida sobre OSR, Sugestão de pauta..." required class="rpg-input" />
+      <input type="text" id="contact-subject" name="subject" placeholder="Ex: Dúvida sobre OSR, Sugestão de pauta..." class="rpg-input" />
     </div>
 
     <div class="rpg-form-group">
       <label for="contact-message">Mensagem <span class="required-star">*</span></label>
-      <textarea id="contact-message" name="message" rows="6" placeholder="Escreva sua mensagem aqui..." required class="rpg-input"></textarea>
+      <textarea id="contact-message" name="message" rows="6" placeholder="Escreva sua mensagem aqui..." class="rpg-input"></textarea>
     </div>
 
-    <!-- ③ CAPTCHA MATEMÁTICO: sem atributo "name" — não vai no FormData enviado ao Pageclip -->
+    <!-- CAPTCHA: sem name — não enviado ao Pageclip -->
     <div class="rpg-form-group">
       <label for="contact-captcha">Verificação <span class="required-star">*</span></label>
       <div class="rpg-captcha-row">
@@ -55,11 +61,12 @@ status=published
         <input type="text" id="contact-captcha" placeholder="Resposta" class="rpg-input rpg-captcha-input" autocomplete="off" inputmode="numeric" />
         <button type="button" id="captcha-refresh" class="rpg-captcha-refresh" title="Nova pergunta" aria-label="Gerar nova pergunta">↺</button>
       </div>
-      <span id="captcha-error" class="rpg-captcha-error" style="display:none;">Resposta incorreta. Tente novamente.</span>
+      <span id="captcha-error" class="rpg-captcha-error" style="display:none;"></span>
     </div>
 
     <div class="rpg-form-actions">
-      <button type="submit" id="contact-submit" class="btn-rpg-submit">
+      <!-- type="button": NUNCA dispara submit nativo. Envio só ocorre via fetch() no JS. -->
+      <button type="button" id="contact-submit" class="btn-rpg-submit">
         <span>Enviar Mensagem</span>
       </button>
     </div>
@@ -69,43 +76,35 @@ status=published
 
 <script>
 (function () {
-  /* ── ① Verificação de sucesso por query param ── */
-  var params = new URLSearchParams(window.location.search);
-  if (params.get('enviado') === '1') {
+  /* ── Sucesso por query param ── */
+  if (new URLSearchParams(window.location.search).get('enviado') === '1') {
     document.getElementById('contact-form-wrap').style.display = 'none';
-    var el = document.getElementById('contact-success');
-    el.style.display = 'flex';
-    el.style.opacity = '0';
-    setTimeout(function () { el.style.opacity = '1'; }, 50);
-    return; // interrompe o restante do script
+    var s = document.getElementById('contact-success');
+    s.style.display = 'flex';
+    s.style.opacity = '0';
+    setTimeout(function () { s.style.opacity = '1'; }, 50);
+    return;
   }
 
-  /* ── ② Timing: registra quando a página carregou ── */
-  var pageLoadTime = Date.now();
+  /* ── Timing ── */
+  var loadTime = Date.now();
 
-  /* ── ③ CAPTCHA matemático ── */
+  /* ── CAPTCHA ── */
   var captchaAnswer = 0;
 
   function generateCaptcha() {
-    var ops = ['+', '-', '×'];
-    var op  = ops[Math.floor(Math.random() * ops.length)];
-    var a, b, result;
-
+    var ops = ['+', '-'];
+    var op = ops[Math.floor(Math.random() * ops.length)];
+    var a, b;
     if (op === '+') {
       a = Math.floor(Math.random() * 9) + 1;
       b = Math.floor(Math.random() * 9) + 1;
-      result = a + b;
-    } else if (op === '-') {
+      captchaAnswer = a + b;
+    } else {
       a = Math.floor(Math.random() * 8) + 3;
       b = Math.floor(Math.random() * (a - 1)) + 1;
-      result = a - b;
-    } else { // ×
-      a = Math.floor(Math.random() * 5) + 2;
-      b = Math.floor(Math.random() * 5) + 2;
-      result = a * b;
+      captchaAnswer = a - b;
     }
-
-    captchaAnswer = result;
     document.getElementById('captcha-question').textContent = a + ' ' + op + ' ' + b + ' = ?';
     document.getElementById('contact-captcha').value = '';
     document.getElementById('captcha-error').style.display = 'none';
@@ -114,19 +113,33 @@ status=published
   generateCaptcha();
   document.getElementById('captcha-refresh').addEventListener('click', generateCaptcha);
 
-  /* ── Validação anti-spam ── */
-  function validateSpam() {
-    // Honeypot: campo preenchido = bot
+  function showError(msg) {
+    var el = document.getElementById('captcha-error');
+    el.textContent = msg;
+    el.style.display = 'block';
+  }
+
+  /* ── Validações ── */
+  function validate() {
+    // Honeypot
     if (document.getElementById('contact-url').value !== '') return false;
 
-    // Timing: menos de 3s desde o carregamento = bot
-    if ((Date.now() - pageLoadTime) / 1000 < 3) return false;
+    // Timing
+    if ((Date.now() - loadTime) / 1000 < 3) return false;
 
-    // CAPTCHA: resposta inválida
-    var userAnswer = parseInt(document.getElementById('contact-captcha').value, 10);
-    if (isNaN(userAnswer) || userAnswer !== captchaAnswer) {
-      document.getElementById('captcha-error').textContent = 'Resposta incorreta. Tente novamente.';
-      document.getElementById('captcha-error').style.display = 'block';
+    // Campos obrigatórios
+    var name = (document.getElementById('contact-name').value || '').trim();
+    var subject = (document.getElementById('contact-subject').value || '').trim();
+    var message = (document.getElementById('contact-message').value || '').trim();
+    if (!name || !subject || !message) {
+      showError('Preencha todos os campos obrigatórios (*).');
+      return false;
+    }
+
+    // CAPTCHA
+    var ans = parseInt(document.getElementById('contact-captcha').value, 10);
+    if (isNaN(ans) || ans !== captchaAnswer) {
+      showError('Resposta incorreta. Tente novamente.');
       document.getElementById('contact-captcha').focus();
       generateCaptcha();
       return false;
@@ -135,49 +148,44 @@ status=published
     return true;
   }
 
-  /* ── Submissão 100% controlada via fetch — Pageclip.form() não é usado ── */
+  /* ── Click handler no botão type="button": única forma de enviar ── */
   window.addEventListener('load', function () {
-    var form = document.getElementById('contact-form');
-    var btn  = document.getElementById('contact-submit');
-    if (!form || !btn) return;
+    var btn = document.getElementById('contact-submit');
+    if (!btn) return;
 
-    // useCapture=true garante que nosso listener roda ANTES de qualquer outro
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
+    btn.addEventListener('click', function () {
+      if (!validate()) return;
 
-      if (!validateSpam()) return;
-
-      // Estado: carregando
       btn.disabled = true;
-      btn.classList.add('pageclip-form__submit--loading');
       btn.querySelector('span').textContent = 'Enviando...';
 
-      fetch(form.action, {
+      var payload = new URLSearchParams();
+      payload.append('name',    document.getElementById('contact-name').value);
+      payload.append('email',   document.getElementById('contact-email').value);
+      payload.append('subject', document.getElementById('contact-subject').value);
+      payload.append('message', document.getElementById('contact-message').value);
+
+      fetch('https://send.pageclip.co/8Uf79FDadK03ApYlYyCXgFmUniuGVMIB/Contato', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload.toString()
       })
         .then(function (res) {
           if (res.ok) {
-            btn.classList.remove('pageclip-form__submit--loading');
-            btn.classList.add('pageclip-form__submit--success');
             btn.querySelector('span').textContent = 'Enviado!';
             setTimeout(function () {
               window.location.href = window.location.pathname + '?enviado=1';
-            }, 800);
+            }, 600);
           } else {
-            throw new Error('status ' + res.status);
+            throw new Error(res.status);
           }
         })
         .catch(function () {
           btn.disabled = false;
-          btn.classList.remove('pageclip-form__submit--loading');
           btn.querySelector('span').textContent = 'Enviar Mensagem';
-          document.getElementById('captcha-error').textContent = 'Erro ao enviar. Tente novamente mais tarde.';
-          document.getElementById('captcha-error').style.display = 'block';
+          showError('Erro ao enviar. Verifique sua conexão e tente novamente.');
         });
-    }, true); // true = captura no modo capture, antes dos listeners bubbling do Pageclip
+    });
   });
 })();
 </script>
