@@ -35,7 +35,7 @@
 							<span th:if="${post.tags != null}">
 								🏷️ <a th:each="tag : ${post.tags}" 
 									class="tag-badge" 
-									th:href="${config.site_host + 'tags/' + #strings.toLowerCase(#strings.replace(#strings.trim(tag), ' ', '-')) + '.html'}" 
+									th:href="${config.site_host + '/tags/' + #strings.toLowerCase(#strings.replace(#strings.trim(tag), ' ', '-')) + '.html'}" 
 									th:text="${tag}">tag</a>
 							</span>
 							
