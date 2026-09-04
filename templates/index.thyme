@@ -35,7 +35,7 @@
 								🏷️ <span th:each="tag : ${post.tags}" class="tag-badge" th:text="${tag}">tag</span>
 							</span>
 						</div>
-						<div class="post-body-preview" th:utext='${post.body}'>
+						<div class="post-body-preview post-rendered-content" th:utext='${post.body}'>
 							Conteúdo do post...
 						</div>
 						<div style="margin-top: 20px;">

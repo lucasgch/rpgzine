@@ -344,6 +344,33 @@ a:focus {
   box-shadow: var(--shadow-card);
 }
 
+.post-rendered-content p:has(> img:only-child) {
+  margin: 32px 0 8px;
+}
+
+.post-rendered-content p > img:only-child {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+}
+
+.post-rendered-content p:has(> img:only-child) + p:has(> em:only-child) {
+  max-width: 720px;
+  margin: 12px auto 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.post-rendered-content p:has(> img:only-child) + p:has(> em:only-child) em {
+  font-style: italic;
+}
+
 /* Discrete Horizontal Dividers */
 hr,
 .article-content hr {
