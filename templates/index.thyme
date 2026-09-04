@@ -77,7 +77,7 @@
 							Foi surpreendido e agora precisa rolar um teste rápido durante a leitura?
 						</p>
 						<button onclick="openDiceRoller()" class="btn-rpg" style="width: 100%; justify-content: center;">
-							Abrir Dado Virtual
+							Role o dado do destino
 						</button>
 					</div>
 					
