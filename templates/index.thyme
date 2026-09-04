@@ -66,8 +66,8 @@
 						<p style="font-size: var(--fs-body); color: var(--text-muted); margin-bottom: 12px;">
 							Escrito e editado por <span style="color: var(--accent-gold);"><strong>Lucas Godoy</strong> - <i>Aú Desviante</i></span> - jornalista, estudante de análise de sistemas e editor independente de fanzines.
 						</p>
-						<a th:href='${content.rootpath+"about.html"}' style="font-size: 1.1rem; color: var(--accent-gold); font-weight: 600;">
-							Saiba mais no Sobre →
+						<a th:href='${content.rootpath+"about.html"}' class="btn-rpg" style="width: 100%; justify-content: center; text-decoration: none;">
+							Saiba mais
 						</a>
 					</div>
 
