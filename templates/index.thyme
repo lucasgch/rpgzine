@@ -33,7 +33,7 @@
 							<span>📅 <em th:text='${#dates.format(post.date,"dd/MM/yyyy")}'>01/09/2026</em></span>
 							
 							<span th:if="${post.tags != null}">
-								🏷️ <a th:each="tag : ${post.tags}" 
+								  <a th:each="tag : ${post.tags}" 
 									class="tag-badge" 
 									th:href="${config.site_host + '/tags/' + #strings.toLowerCase(#strings.replace(#strings.trim(tag), ' ', '-')) + '.html'}" 
 									th:text="${tag}">tag</a>
