@@ -1,4 +1,4 @@
-title=Agora vai? Netflix está produzindo série live-action de Ravenloft (D&D)
+title=Agora vai? Netflix está produzindo série de Ravenloft (D&D)
 date=2026-09-04
 type=post
 tags=rpg, dnd, ravenloft, netflix, cinema
