@@ -11,6 +11,9 @@
 		          &copy; 2026 <strong>RPGZine</strong> | Focado em RPG de Mesa | Inspirado na Filosofia Old School | 
 		          Gerado com <a href="http://jbake.org" target="_blank" rel="noopener">JBake</a> &amp; <a href="https://www.thymeleaf.org/" target="_blank" rel="noopener">Thymeleaf</a>
 		        </p>
+		        <p class="muted credit">
+		          Favicon criado por David Carapinha disponível em <a href="https://www.flaticon.com/br/icones-gratis/rpg" title="rpg ícones" target="_blank" rel="noopener">Rpg ícones criados por David Carapinha - Flaticon</a>.
+		        </p>
 		      </div>
 		    </div>
 	    
