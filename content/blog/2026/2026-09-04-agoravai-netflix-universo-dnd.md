@@ -4,7 +4,7 @@ type=post
 tags=rpg, dnd, ravenloft, netflix, cinema
 status=published
 description=A Netflix começou a trabalhar em uma nova série em live-action baseada em Dungeons & Dragons, com foco no cenário de Ravenloft e Strahd von Zarovich.
-image=/rpgzine/blog/2026/Capa_Ravenloft.jpg
+image=/rpgzine/blog/2026/capa-ravenloft.jpg
 ~~~~~~
 
 De acordo com informações reveladas pela [Variety](https://variety.com/), a Netflix começou a trabalhar em uma nova série em live-action baseada em Dungeons & Dragons, desta vez focando no icônico cenário de **Ravenloft**.
@@ -15,7 +15,7 @@ A nova produção é descrita como uma série de fantasia que combina aventura, 
 
 **Equipe de Peso**: O roteiro estará nas mãos de John August (Peixe Grande e Suas Histórias Maravilhosas), com envolvimento de Gabriel Marano (Hasbro) e Alfonso Cuarón (Harry Potter e o Prisioneiro de Azkaban).
 
-![Capa original, desenhada por Clyde Caldwell. Ela mostra o vilão Strahd von Zarovich no topo do Castelo Ravenloft.](Capa_Ravenloft.jpg)
+![Capa original, desenhada por Clyde Caldwell. Ela mostra o vilão Strahd von Zarovich no topo do Castelo Ravenloft.](capa-ravenloft.jpg)
 
 *Capa original, desenhada por Clyde Caldwell. Ela mostra o vilão Strahd von Zarovich no topo do Castelo Ravenloft.*
 
