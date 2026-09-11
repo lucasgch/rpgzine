@@ -3,6 +3,7 @@ date=2026-09-04
 type=post
 tags=rpg, dnd, ravenloft, netflix, cinema
 status=published
+description=A Netflix começou a trabalhar em uma nova série em live-action baseada em Dungeons & Dragons, com foco no cenário de Ravenloft e Strahd von Zarovich.
 ~~~~~~
 
 De acordo com informações reveladas pela [Variety](https://variety.com/), a Netflix começou a trabalhar em uma nova série em live-action baseada em Dungeons & Dragons, desta vez focando no icônico cenário de **Ravenloft**.
