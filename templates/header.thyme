@@ -4,7 +4,7 @@
 	    <meta charset="utf-8"/>
 	    <title th:with="title=(${content.title != null} ? ${content.title} + ' | RPGZine' : 'RPGZine - RPG de Mesa & OSR')" th:text="${title}"></title>
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	    <meta name="description" content="RPGZine - Um zine estático sobre RPG de mesa, filosofia OSR (Old School Renaissance) e regras da casa."/>
+	    <meta name="description" th:content="${content.description ?: 'RPGZine - Um zine sobre RPG de mesa, filosofia OSR (Old School Renaissance), sistemas e assuntos relacionados.'}"/>
 	    <meta name="author" content="RPGZine"/>
 	    <meta name="keywords" content="rpg, osr, tabletop rpg, dnd, cairn, houserules, rpg de mesa"/>
 	    <meta name="generator" content="JBake"/>
