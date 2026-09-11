@@ -24,6 +24,7 @@
 		<meta name="twitter:title" th:content="${content != null and content.title != null ? content.title : 'RPGZine'}" />
 		<meta name="twitter:description" th:content="${content != null and content.get('description') != null ? content.get('description') : 'RPGZine - Um zine sobre RPG de mesa, filosofia OSR (Old School Renaissance), sistemas e assuntos relacionados.'}" />
 		<meta name="twitter:image" th:content="${content != null and content.get('image') != null ? 'https://www.lucasgodoy.dev' + content.get('image') : 'https://www.lucasgodoy.dev/rpgzine/img/imagem-padrao.png'}" />
+		<meta name="twitter:card" content="summary_large_image" />
 	
 	    <!-- Stylesheets -->
 	    <link th:with="rootpath=(${content != null and content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'css/bootstrap.min.css'" rel="stylesheet"/>
