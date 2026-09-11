@@ -15,9 +15,9 @@ A nova produção é descrita como uma série de fantasia que combina aventura, 
 
 **Equipe de Peso**: O roteiro estará nas mãos de John August (Peixe Grande e Suas Histórias Maravilhosas), com envolvimento de Gabriel Marano (Hasbro) e Alfonso Cuarón (Harry Potter e o Prisioneiro de Azkaban).
 
-![Capa original, desenhada por Clyde Caldwell. Ela mostra o vilão Strahd von Zarovich no topo do Castelo Ravenloft.](capa-ravenloft.jpg)
+![Imagem mostra o vilão Strahd von Zarovich](capa-ravenloft.jpg)
 
-*Capa original, desenhada por Clyde Caldwell. Ela mostra o vilão Strahd von Zarovich no topo do Castelo Ravenloft.*
+*Imagem mostra o vilão Strahd von Zarovich*
 
 ## Ravenloft
 
