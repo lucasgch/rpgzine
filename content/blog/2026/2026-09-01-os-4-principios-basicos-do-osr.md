@@ -4,7 +4,7 @@ type=post
 tags=rpg, osr, filosofiadejogo, dnd
 status=published
 description=Conheça os 4 princípios básicos (ou momentos zen) do OSR propostos por Matthew Finch e entenda a filosofia por trás do RPG de mesa estilo Old School.
-image=https://www.lucasgodoy.dev/rpgzine/blog/2026/gemini-image.jpeg
+image=/rpgzine/blog/2026/gemini-image.jpeg
 ~~~~~~
 
 Se você quer conhecer que diabos é esse tal RPG Old School, ou qual a diferença dele para outros estilos de RPG, o primeiro passo é entender os 4 princípios básicos do OSR (*Old School Renaissance* ou *Old School Revival*), também chamados de os 4 momentos zen. Esses princípios foram popularizados no texto fundamental *A Quick Primer for Old School Gaming* de Matthew Finch e resumem a filosofia de RPG Old School:
