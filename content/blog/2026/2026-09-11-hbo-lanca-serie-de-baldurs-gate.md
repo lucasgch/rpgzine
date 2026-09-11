@@ -4,7 +4,7 @@ type=post
 tags=rpg, dnd, baldursgate, hbo, cinema
 status=published
 description=A HBO está produzindo uma série de Baldur's Gate 3! Adaptada por Craig Mazin (The Last of Us), a produção promete ser uma continuação direta do jogo de D&D.
-image=/rpgzine/blog/2026/baldurs-gate-3-cover.jpg
+image=https://www.lucasgodoy.dev/rpgzine/blog/2026/baldurs-gate-3-cover.jpg
 ~~~~~~
 
 A HBO deve dar sequência a dobradinha de jogos e séries inciada com o sucesso do "The Last Of Us" com um título licenciado de Dungeos and Dragons e que também foi muito elogiado e bem sucedido: estamos falando do jogo Baldurs Gate 3.
