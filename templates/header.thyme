@@ -16,6 +16,9 @@
 	    <link th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'css/prettify.css'" rel="stylesheet"/>
 	    <link th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'css/rpgzine.css'" rel="stylesheet"/>
 	    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen"/>
+
+		<!-- Tag de verificação do google search -->
+		<meta name="google-site-verification" content="XuD14deA5t_DsQEoIxOjyaINCTxGkEgMtoigA3rNw-s" />
 	
 	    <!-- Fav and touch icons -->
 	    <link th:with="rootpath=(${content.rootpath != null} ? ${content.rootpath} : '')" rel="shortcut icon" th:href="${rootpath}+'favicon.ico'"/>
