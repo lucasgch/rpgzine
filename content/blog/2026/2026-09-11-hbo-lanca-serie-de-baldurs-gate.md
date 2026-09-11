@@ -11,7 +11,15 @@ A HBO deve dar sequência a dobradinha de jogos e séries inciada com o sucesso 
 
 *O jogo Baldur's Gate 3 da Larian Studios, se passa no universo de Dungeons & Dragons.*
 
-E as coincidencias não param por aí, a séria será adaptada por Craig Mazin, justamente o cocriador da adaptação do jogo The Last of Us para a série.
+## Baldurs Gate 3
+
+Adaptado da quinta edição do RPG de mesa Dungeons & Dragons, Baldur's Gate 3 utiliza a mecânica e o cenário de Forgotten Realm, o mesmo do jogo de mesa. Os jogadores criam um personagem personalizável e embarcam em missões com um grupo de companheiros. Alternativamente, podem jogar como um dos companheiros. A jogabilidade consiste em exploração em tempo real de grandes áreas, combate por turnos e escolhas narrativas que impactam o grupo e o mundo em geral. Os resultados de combate, diálogo e interação com o mundo são geralmente determinados rolando um dado de 20 lados.
+
+Um dos grandes destaques do jogo é a sua narrativa envolvente, principalmente no início, que prende o jogador logo de cara e desperta grande curiosidade sobre o que virá a seguir na aventura.
+
+## A fórmula de sucesso do "The Last Of Us"
+
+A HBO parece ter decidido seguir uma fórmula de sucesso. A séria será adaptada por Craig Mazin, justamente o cocriador da adaptação do jogo The Last of Us para a série.
 
 Mas, enquanto a "The last of us" recontou os jogos por meio da série, os criadores da série de Baldurs Gate prometem uma continuação da saga iniciada no jogo Baldurs Gate 3.
 
@@ -21,7 +29,7 @@ Por se tratarem de dois licenciamentos da marca Dungeons and Dragons feitos pela
 
 Uma curiosidade é que o criador da série, Craig Mazin, diz também ser um entusiasta dos jogos, tendo zerado o jogo eletrônico Baldurs Gate 3 em um dos seus modos mais difíceis, o modo Honra, e também jogado D&D semanalmente há 15 anos.
 
-Para os fãs de Dungeons and Dragons, vai ser difícil segurar esse hype.
+Nos resta torcer para que a adaptação seja muito bem feita. Para os fãs de Dungeons and Dragons, vai ser difícil segurar esse hype.
 
 ---
 
