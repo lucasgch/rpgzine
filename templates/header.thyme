@@ -16,11 +16,13 @@
 		<meta property="og:title" th:content="${content != null and content.title != null ? content.title : 'RPGZine'}" />
 		<meta property="og:type" content="article" />
 		<meta property="og:url" th:if="${content != null and content.uri != null}" th:href="${config.site_host + content.uri}" />
-
-		<!-- Open Graph Image (com Fallback) -->
+		<meta property="og:description" th:content="${content != null and content.get('description') != null ? content.get('description') : 'RPGZine - Um zine sobre RPG de mesa, filosofia OSR (Old School Renaissance), sistemas e assuntos relacionados.'}" />
 		<meta property="og:image" th:content="${content != null and content.get('image') != null ? config.site_host + content.get('image') : config.site_host + '/rpgzine/img/imagem-padrao.png'}" />
 
-		<!-- Twitter Image (com Fallback) -->
+		<!-- Twitter Cards (X e Bluesky) -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" th:content="${content != null and content.title != null ? content.title : 'RPGZine'}" />
+		<meta name="twitter:description" th:content="${content != null and content.get('description') != null ? content.get('description') : 'RPGZine - Um zine sobre RPG de mesa, filosofia OSR (Old School Renaissance), sistemas e assuntos relacionados.'}" />
 		<meta name="twitter:image" th:content="${content != null and content.get('image') != null ? config.site_host + content.get('image') : config.site_host + '/rpgzine/img/imagem-padrao.png'}" />
 	
 	    <!-- Stylesheets -->
