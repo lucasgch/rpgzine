@@ -11,7 +11,7 @@ Se você curte ficção científica, distopias marcantes e literatura antissiste
 
 Para mudar esse cenário, a **Editora Diário Macabro** lançou no Catarse a campanha de financiamento coletivo para publicar **[Os Maiores Sucessos de Harlan Ellison](https://catarse.com.br/harlan)**, tradução integral da renomada coletânea *Greatest Hits*.
 
-![Os maiores sucessos de Harlan Ellison](os-maiores-sucessos-harlen.webp)
+[![Os maiores sucessos de Harlan Ellison](os-maiores-sucessos-harlen.webp)](https://catarse.com.br/harlan)
 
 *[Clique aqui para acessar o financiamento coletivo no Catarse](https://catarse.com.br/harlan)*
 
