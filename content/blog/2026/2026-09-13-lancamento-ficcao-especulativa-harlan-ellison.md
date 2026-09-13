@@ -17,7 +17,11 @@ Para mudar esse cenário, a **Editora Diário Macabro** lançou no Catarse a cam
 
 ### **Uma Seleção de 19 Obras Organizada por J. Michael Straczynski**
 
-Organizada pelo escritor e criador **J. Michael Straczynski** (*Babylon 5*, *Sense8*), a coletânea reúne 19 contos e novelas fundamentais que servem como introdução perfeita e panorama da evolução literária do autor. Entre os destaques está a clássica narrativa “**Arrependa-se, Harlequin! Disse o Homem Tique-Taque**”, história vencedora do prêmio Hugo apontada por Alan Moore como o gérmen para a HQ *V de Vingança*[7]. Outro marco presente no volume é “**Não tenho boca e preciso gritar**”, conto sobre uma inteligência artificial totalitária que destruiu a humanidade e mantém apenas cinco sobreviventes sob tortura física e psicológica — narrativa que serviu de inspiração para a animação *O Incrível Circo Digital*.
+Organizada pelo escritor e criador **J. Michael Straczynski** (*Babylon 5*, *Sense8*), a coletânea reúne 19 contos e novelas fundamentais que servem como introdução perfeita e panorama da evolução literária do autor. 
+
+Entre os destaques está a clássica narrativa “**Arrependa-se, Harlequin! Disse o Homem Tique-Taque**”, história vencedora do prêmio Hugo apontada por Alan Moore como o gérmen para a HQ *V de Vingança*. 
+
+Outro marco presente no volume é “**Não tenho boca e preciso gritar**”, conto sobre uma inteligência artificial totalitária que destruiu a humanidade e mantém apenas cinco sobreviventes sob tortura física e psicológica — narrativa que serviu de inspiração para a animação *O Incrível Circo Digital*.
 
 A edição brasileira organiza as obras em **cinco núcleos temáticos**:
 
@@ -29,7 +33,11 @@ A edição brasileira organiza as obras em **cinco núcleos temáticos**:
 
 ### **Tradução Integral, Projeto Gráfico Nacional e Postura Contra IA**
 
-O trabalho de tradução foi realizado por **L. F. Lunardello**, tradutor e editor com mais de vinte anos de experiência em literatura insólita, de forma integral e sem omissões, condensações ou suavizações do texto original. Em relação ao formato físico, a editora adaptou o projeto norte-americano para um formato nacional ampliado de **16x23 cm**, com aproximadamente 368 páginas em papel amarelado e acabamento em brochura com orelhas. A ilustração de capa foi criada pelo artista **Preto Pasin**, enquanto a edição e coordenação geral do projeto são lideradas por **Nathalia Sorgon Scotuzzi** e o projeto gráfico por **Pedro H. S. Andrade**.
+O tradutor e editor **L. F. Lunardello** tem mais de vinte anos de experiência em literatura insólita, uma de suas preocupações é a publicação de forma integral e sem omissões, condensações ou suavizações do texto original. 
+
+Em relação ao formato físico, a editora adaptou o projeto para um formato nacional ampliado de **16x23 cm**, com aproximadamente 368 páginas em papel amarelado e acabamento em brochura com orelhas.
+
+A ilustração de capa foi criada pelo artista **Preto Pasin**, enquanto a edição e coordenação geral do projeto são lideradas por **Nathalia Sorgon Scotuzzi** e o projeto gráfico por **Pedro H. S. Andrade**.
 
 Em consonância com a verve crítica do próprio Ellison, a editora adotou uma **postura 100% contrária ao uso de Inteligência Artificial**, garantindo que todas as etapas de produção do livro — tradução, revisão, edição e ilustrações — fossem realizadas exclusivamente por profissionais humanos.
 
