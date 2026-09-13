@@ -45,5 +45,5 @@ Para quem aprecia ficção científica transgressora, RPGs com cenários distóp
 [Harlan Ellison na Wikipedia](https://pt.wikipedia.org/wiki/Harlan_Ellison)
 [A antologia perdida de Harlan Ellison na Momentum Saga](https://www.momentumsaga.com/2021/05/a-antologia-perdida-de-harlan-ellison.html)
 [Arigo sobre a obra no site RPG News](https://newsrpg.wordpress.com/2026/09/13/financiamento-coletivo-os-maiores-sucesso-de-harlan-ellison/)
-[Os Maiores Sucessos de HARLAN ELLISON (Ed. Diário Macabro) no canal Formiga Elétrica](https://www.youtube.com/watch?v=p3nwSBJnHnI)
+[Live sobre o financiamento coletivo da Ed. Diário Macabro no canal Formiga Elétrica](https://www.youtube.com/watch?v=p3nwSBJnHnI)
 [Os maiores sucessos de Harlan Ellison no canal da Editora Diário Macabro](https://www.youtube.com/watch?v=lS7yoJNJs8k)
