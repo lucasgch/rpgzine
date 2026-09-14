@@ -47,6 +47,10 @@
 }
 
 /* Global Reset & Base */
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
@@ -186,6 +190,49 @@ a:focus {
   color: var(--accent-gold);
   background: rgba(212, 175, 55, 0.1);
   border-bottom: 2px solid var(--accent-gold);
+}
+
+/* Mobile Menu Toggle (Hamburger) — o Bootstrap 3 usa cores claras (#888/#ddd)
+   por padrão, quase invisíveis sobre o fundo escuro do tema. */
+.navbar-rpg .navbar-toggle {
+  border-color: var(--border-gold-glow);
+  margin-top: 10px;
+}
+
+.navbar-rpg .navbar-toggle .icon-bar {
+  background-color: var(--accent-gold);
+}
+
+.navbar-rpg .navbar-toggle:hover,
+.navbar-rpg .navbar-toggle:focus {
+  background-color: rgba(212, 175, 55, 0.15);
+  border-color: var(--accent-gold);
+}
+
+/* Menu colapsado (mobile): áreas de toque maiores e separadores sutis */
+@media (max-width: 767px) {
+  .navbar-rpg .navbar-collapse {
+    border-top: 1px solid var(--border-gold);
+    margin-top: 10px;
+    padding-top: 6px;
+    padding-bottom: 10px;
+  }
+
+  .navbar-rpg .nav>li>a {
+    padding: 13px 16px;
+  }
+
+  .navbar-rpg .nav>li {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+  }
+
+  .navbar-rpg .nav>li:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-rpg .dice-roller-btn {
+    margin: 10px 16px 4px;
+  }
 }
 
 /* Hero Section */
@@ -394,6 +441,42 @@ hr,
   margin-left: 0 !important;
   padding-left: 0 !important;
   margin-bottom: 8px;
+}
+
+/* Article Tables (Asciidoctor) — evita que tabelas largas quebrem o layout mobile */
+.article-content table,
+.post-rendered-content table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Archive & Tags — Lista de posts */
+.archive-list-item {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
+  padding-bottom: 12px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 15px;
+}
+
+.archive-list-date {
+  color: var(--accent-gold);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  min-width: 100px;
+}
+
+.archive-list-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  min-width: 0;
+  word-break: break-word;
+  flex: 1 1 200px;
 }
 
 /* Reference / Source list following hr (Aligned 100% flush to left edge) */
@@ -884,6 +967,14 @@ textarea.rpg-input {
     padding: 20px;
   }
 
+  .rpg-hero {
+    padding: 30px 20px;
+  }
+
+  .post-card {
+    padding: 20px;
+  }
+
   .rpg-form-row {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -895,5 +986,26 @@ textarea.rpg-input {
 
   .dice-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Telas bem estreitas (celulares pequenos, ~360px ou menos) */
+@media (max-width: 400px) {
+  .rpg-hero {
+    padding: 24px 16px;
+  }
+
+  .dice-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dice-modal {
+    padding: 20px;
+  }
+
+  .archive-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 }
