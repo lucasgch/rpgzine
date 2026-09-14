@@ -58,6 +58,6 @@ O sistema evoca características fortes dos clássicos **Dungeon Crawlers Old Sc
 
 A pré-campanha de financiamento coletivo para trazer os materiais traduzidos e impressos de *Stalker 2ª Edição* já está movimentando a comunidade! Para acompanhar de perto as novidades da editora e garantir o seu exemplar, acesse os links oficiais da **Dark Entity**:
 
-* **Instagram:** [@darkeditora](https://www.google.com/search?q=https://www.instagram.com/darkeditora)
+* **Instagram:** [@darkeditora](https://www.instagram.com/darkentitypublishing)
 * **Site Oficial:** [darkentitygroup.com/pt/stalker](https://www.darkentitygroup.com)
-* **Campanha no Catarse:** [catarse.br/stalker-rpg](https://catarse.com.br/stalkerrpg)  
+* **Campanha no Catarse:** [catarse.br/stalker-rpg](https://catarse.com.br/stalkerrpg)
