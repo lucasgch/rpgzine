@@ -12,7 +12,7 @@
 					<h1 th:text='${content.title}'>Título da Postagem</h1>
 					<div class="post-meta" style="justify-content: center; margin-top: 15px;">
 						<span>📅 <em th:text='${#dates.format(content.date,"dd MMMM yyyy")}'>01 de Setembro de 2026</em></span>
-						<span th:if="${content.tags != null}">
+						<span th:if="${content.tags != null}" class="tag-list">
 							🏷️ <span th:each="tag : ${content.tags}" class="tag-badge" th:text="${tag}">tag</span>
 						</span>
 					</div>

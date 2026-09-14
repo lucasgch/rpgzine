@@ -350,6 +350,18 @@ a:focus {
 }
 
 /* Tag Badges */
+/* Wrapper das tags — vira seu próprio mini contêiner flex, ocupa a linha
+   inteira dentro de .post-meta e quebra as tags internamente, não importa
+   quantas existam. Evita que a linha de tags estoure a largura da tela. */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex: 1 1 100%;
+}
+
 .tag-badge {
   display: inline-block;
   background: rgba(229, 169, 60, 0.12);
@@ -362,8 +374,6 @@ a:focus {
   letter-spacing: 0.05em;
   padding: 3px 10px;
   border-radius: 20px;
-  margin-right: 6px;
-  margin-bottom: 6px;
   max-width: 100%;
   overflow-wrap: break-word;
   transition: all 0.2s ease;
