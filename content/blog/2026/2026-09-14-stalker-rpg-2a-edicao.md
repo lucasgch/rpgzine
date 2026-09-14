@@ -13,7 +13,9 @@ O episódio recente do podcast *A Forja* produzido pelo [RPG Next](https://www.y
 
 [![STALKER RPG – 2ª Edição](stalker-rpg-2-edicao.webp)](https://catarse.com.br/stalkerrpg)
 
-Se você perdeu a transmissão, preparamos um resumo completo destacando os pontos principais abordados no bate-papo.
+*[Clique aqui para acessar o financiamento coletivo no Catarse](https://catarse.com.br/stalkerrpg)*
+
+Se você perdeu a transmissão da Forja, ou prefere ler um resumo, destacamos aqui os pontos principais do bate-papo.
 
 ## 1. Conheça a Editora Dark Entity
 
