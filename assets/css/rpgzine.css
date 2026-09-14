@@ -66,6 +66,8 @@ body {
 
 #wrap {
   flex: 1 0 auto;
+  min-width: 0;
+  width: 100%;
 }
 
 /* Typography */
@@ -361,6 +363,9 @@ a:focus {
   padding: 3px 10px;
   border-radius: 20px;
   margin-right: 6px;
+  margin-bottom: 6px;
+  max-width: 100%;
+  overflow-wrap: break-word;
   transition: all 0.2s ease;
 }
 
