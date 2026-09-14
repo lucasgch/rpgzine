@@ -1,4 +1,13 @@
-2ª Edição do Stalker RPG em Financiamento Coletivo
+title=2ª Edição do Stalker RPG em Financiamento Coletivo
+date=2026-09-14
+type=post
+tags=rpg, stalker
+status=published
+description=A Editora Dark Entity lançou um financiamento coletivo para a produção da segunda edição do RPG Stalker em Português. A nova edição promete seguir fiel ao sistema flow que reduz a necessidade de rolar dados e acrescentar novidades como um cenário ambientado no Brasil.
+image=/rpgzine/blog/2026/stalker-rpg-2-edicao.webp
+~~~~~~
+
+
 
 O episódio recente do podcast *A Forja* produzido pelo [RPG Next](https://www.youtube.com/watch?v=5rMcXU0W9iw) trouxe uma entrevista muito interessante com Thiago Moura e Fausto Maiandi, fundadores da **[Dark Entity](https://www.darkentitygroup.com/)**, para apresentar a segunda edição de um clássico da ficção científica e do horror nos RPGs: **Stalker**.
 
