@@ -7,7 +7,7 @@ description=A Editora Dark Entity lançou um financiamento coletivo para a produ
 image=/rpgzine/blog/2026/stalker-rpg-2-edicao.webp
 ~~~~~~
 
-O episódio recente do podcast *A Forja* produzido pelo [RPG Next](https://www.youtube.com/watch?v=5rMcXU0W9iw) trouxe uma entrevista muito interessante com Thiago Moura e Fausto Maiandi, fundadores da **[Dark Entity](https://www.darkentitygroup.com/)**. O objetivo foi apresentar a segunda edição de um clássico da ficção científica e do horror nos RPGs: **Stalker**.
+O episódio recente do podcast *A Forja* produzido pelo [RPG Next](https://www.youtube.com/watch?v=5rMcXU0W9iw) trouxe uma entrevista muito interessante com Thiago Moura e Fausto Maiandi, fundadores da editora **[Dark Entity](https://www.darkentitygroup.com/)**. O objetivo foi apresentar a segunda edição de um clássico da ficção científica e do horror nos RPGs: **Stalker**.
 
 [*STALKER*](https://www.darkentitygroup.com/pt/stalker) é um jogo RPG de mesa de ficção científica criado pelo finlandês Ville Vuorela em 2008. O sistema é baseado no livro "[Piquenique na Estrada](https://link.amazon/B02gMZLQt)" de Arkady e Boris Strugatsky e no filme homônimo de Andrei Tarkovsky. A primeira versão do sistema foi traduzida e lançada em português em 2027 pela Editora Dark Entity.
 
@@ -58,6 +58,6 @@ O sistema evoca características fortes dos clássicos **Dungeon Crawlers Old Sc
 
 A pré-campanha de financiamento coletivo para trazer os materiais traduzidos e impressos de *Stalker 2ª Edição* já está movimentando a comunidade! Para acompanhar de perto as novidades da editora e garantir o seu exemplar, acesse os links oficiais da **Dark Entity**:
 
-* **Instagram:** [@darkeditora](https://www.instagram.com/darkentitypublishing)
+* **Instagram:** [@darkentityeditora](https://www.instagram.com/darkentitypublishing)
 * **Site Oficial:** [darkentitygroup.com/pt/stalker](https://www.darkentitygroup.com)
 * **Campanha no Catarse:** [catarse.br/stalker-rpg](https://catarse.com.br/stalkerrpg)
