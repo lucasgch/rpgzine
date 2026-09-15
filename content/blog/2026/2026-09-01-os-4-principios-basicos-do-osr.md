@@ -11,6 +11,8 @@ Se você quer conhecer que diabos é esse tal RPG Old School, ou qual a diferen�
 
 ![Old School RPG Image](callout-figures.jpg)
 
+*Callot figures; a dwarf man playing the drum at left, a beefeater in center, a flute player to right (from "Six grotesques"). Public domain image via Picryl [originally sourced from the Metropolitan Museum of Art](https://picryl.com/media/callot-figures-a-dwarf-man-playing-the-drum-at-left-a-beefeater-in-center-a-b09c19)*.
+
 ### 1. Decisões do Mestre e bom senso antes das Regras (*Rulings, not Rules*)
 Em vez de buscar uma regra específica para cada ação no livro, o estilo OSR prioriza a interpretação e a decisão do Mestre no momento do jogo. O foco está na imaginação e no uso da lógica prática pelos jogadores para interagir com o cenário, permitindo maior liberdade de ação sem travar a mesa com consultas a manuais.
 
