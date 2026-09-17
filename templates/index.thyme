@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 	<head th:replace="header.thyme::head"/>
 	<body onload="prettyPrint()">
 	<div id="wrap">
@@ -12,7 +12,7 @@
 				<h1 class="sr-only">RPGZine</h1>
 				<p class="lead">Um fanzine digital sobre RPG de mesa com notas aleatórias, links, filosofia Old School, leituras e projetos relacionados que curto ou contribuo.</p>
 				<div>
-					<a href="javascript:void(0)" onclick="openDiceRoller()" class="btn-rpg">
+					<a href="/rolar-dados" onclick="openDiceRoller(); return false;" class="btn-rpg">
 						🎲 Testar a Sorte (Rolar os dados)
 					</a>
 				</div>
