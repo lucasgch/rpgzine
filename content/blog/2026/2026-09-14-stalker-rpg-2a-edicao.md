@@ -9,7 +9,7 @@ image=/rpgzine/blog/2026/stalker-rpg-2-edicao.webp
 
 O episódio recente do podcast *A Forja* produzido pelo [RPG Next](https://www.youtube.com/watch?v=5rMcXU0W9iw) trouxe uma entrevista muito interessante com Thiago Moura e Fausto Maiandi, fundadores da editora **[Dark Entity](https://www.darkentitygroup.com/)**. O objetivo foi apresentar a segunda edição de um clássico da ficção científica e do horror nos RPGs: **Stalker**.
 
-*Stalker* é um jogo RPG de mesa de ficção científica criado pelo finlandês Ville Vuorela em 2008. O sistema é baseado no livro "[Piquenique na Estrada](https://link.amazon/B02gMZLQt)" de Arkady e Boris Strugatsky e no filme homônimo de Andrei Tarkovsky. A primeira versão do sistema foi traduzida e lançada em português em 2027 pela Editora Dark Entity.
+**Stalker** é um jogo RPG de mesa de ficção científica criado pelo finlandês Ville Vuorela em 2008. O sistema é baseado no livro "[Piquenique na Estrada](https://link.amazon/B02gMZLQt)" de Arkady e Boris Strugatsky e no filme homônimo de Andrei Tarkovsky. A primeira versão do sistema foi traduzida e lançada em português em 2027 pela Editora Dark Entity.
 
 [![STALKER RPG – 2ª Edição](stalker-rpg-2-edicao.webp)](https://catarse.com.br/stalkerrpg)
 
