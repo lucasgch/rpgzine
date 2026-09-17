@@ -4,38 +4,125 @@
    ========================================================================== */
 
 /*
- * Fallback fonts com métricas ajustadas para eliminar CLS (Cumulative Layout Shift).
- * Quando as fontes Google Fonts carregam de forma assíncrona, a troca para a fonte
- * real não causa reflow visível pois o fallback ocupa o mesmo espaço.
+ * Fontes auto-hospedadas com font-display: optional para CLS = 0.
+ * Com 'optional', o browser usa a fonte web somente se ela já estiver no cache.
+ * Na primeira visita usa o fallback (sem swap visível), nas seguintes usa a fonte
+ * web cacheada. Isso elimina completamente o layout shift causado por fontes.
  *
- * Valores calculados com base nas métricas das fontes:
- * - Plus Jakarta Sans: ascender=950, descender=220, xHeight=519, capHeight=720, upm=1000
- * - Yrsa: ascender=900, descender=200, xHeight=457, capHeight=623, upm=1000
- * - Fallback Arial: ascender=1854, descender=434, capHeight=1467, upm=2048
+ * Fontes: Plus Jakarta Sans (sans-serif, corpo) + Yrsa (serif, títulos)
+ * Subsets: latin only (PT-BR)
  */
 
-/* Fallback para Plus Jakarta Sans (body/sans) baseado em Arial */
+/* ── Plus Jakarta Sans ────────────────────────────────────────── */
 @font-face {
-  font-family: 'Plus Jakarta Sans Fallback';
-  src: local('Arial');
-  ascent-override: 103.8%;
-  descent-override: 22.2%;
-  line-gap-override: 0%;
-  size-adjust: 103.36%;
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url('fonts/plus-jakarta-sans-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* Fallback para Yrsa (heading/serif) baseado em Georgia */
-/* Georgia: ascender=1878, descender=442, capHeight=1348, upm=2048 */
-/* size_adjust = (623/1000) / (1348/2048) = 0.623 / 0.658 ≈ 94.7% */
-/* ascent_override = (900/1000) / 0.947 ≈ 95.0% */
-/* descent_override = (200/1000) / 0.947 ≈ 21.1% */
 @font-face {
-  font-family: 'Yrsa Fallback';
-  src: local('Georgia');
-  ascent-override: 95%;
-  descent-override: 21.1%;
-  line-gap-override: 0%;
-  size-adjust: 94.7%;
+  font-family: 'Plus Jakarta Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: optional;
+  src: url('fonts/plus-jakarta-sans-latin-400-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url('fonts/plus-jakarta-sans-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url('fonts/plus-jakarta-sans-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url('fonts/plus-jakarta-sans-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ── Yrsa ──────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Yrsa';
+  font-style: normal;
+  font-weight: 500;
+  font-display: optional;
+  src: url('fonts/yrsa-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Yrsa';
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url('fonts/yrsa-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Yrsa';
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url('fonts/yrsa-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Yrsa';
+  font-style: italic;
+  font-weight: 400;
+  font-display: optional;
+  src: url('fonts/yrsa-latin-400-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Yrsa';
+  font-style: italic;
+  font-weight: 600;
+  font-display: optional;
+  src: url('fonts/yrsa-latin-600-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 :root {
@@ -52,9 +139,9 @@
   --text-main: #f6f3eb;
   --text-muted: #9aa1b2;
   --text-heading: #e3dec3;
-  --font-heading: 'Yrsa', 'Yrsa Fallback', Georgia, serif;
-  --font-body: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', Arial, sans-serif;
-  --font-sans: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', Arial, sans-serif;
+  --font-heading: 'Yrsa', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', Arial, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', Arial, sans-serif;
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
   --radius-sm: 6px;
   --radius-md: 12px;
