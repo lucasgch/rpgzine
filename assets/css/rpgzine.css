@@ -2,6 +2,42 @@
    RPGZine - Custom Dark Fantasy / OSR Theme
    Revisão: escala tipográfica consolidada, sem regras duplicadas/conflitantes
    ========================================================================== */
+
+/*
+ * Fallback fonts com métricas ajustadas para eliminar CLS (Cumulative Layout Shift).
+ * Quando as fontes Google Fonts carregam de forma assíncrona, a troca para a fonte
+ * real não causa reflow visível pois o fallback ocupa o mesmo espaço.
+ *
+ * Valores calculados com base nas métricas das fontes:
+ * - Plus Jakarta Sans: ascender=950, descender=220, xHeight=519, capHeight=720, upm=1000
+ * - Yrsa: ascender=900, descender=200, xHeight=457, capHeight=623, upm=1000
+ * - Fallback Arial: ascender=1854, descender=434, capHeight=1467, upm=2048
+ */
+
+/* Fallback para Plus Jakarta Sans (body/sans) baseado em Arial */
+@font-face {
+  font-family: 'Plus Jakarta Sans Fallback';
+  src: local('Arial');
+  ascent-override: 103.8%;
+  descent-override: 22.2%;
+  line-gap-override: 0%;
+  size-adjust: 103.36%;
+}
+
+/* Fallback para Yrsa (heading/serif) baseado em Georgia */
+/* Georgia: ascender=1878, descender=442, capHeight=1348, upm=2048 */
+/* size_adjust = (623/1000) / (1348/2048) = 0.623 / 0.658 ≈ 94.7% */
+/* ascent_override = (900/1000) / 0.947 ≈ 95.0% */
+/* descent_override = (200/1000) / 0.947 ≈ 21.1% */
+@font-face {
+  font-family: 'Yrsa Fallback';
+  src: local('Georgia');
+  ascent-override: 95%;
+  descent-override: 21.1%;
+  line-gap-override: 0%;
+  size-adjust: 94.7%;
+}
+
 :root {
   --bg-dark: #0d0e12;
   --bg-surface: #151720;
@@ -16,9 +52,9 @@
   --text-main: #f6f3eb;
   --text-muted: #9aa1b2;
   --text-heading: #e3dec3;
-  --font-heading: 'Yrsa', Georgia, serif;
-  --font-body: 'Plus Jakarta Sans', sans-serif;
-  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Yrsa', 'Yrsa Fallback', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', Arial, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', Arial, sans-serif;
   --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
   --radius-sm: 6px;
   --radius-md: 12px;
