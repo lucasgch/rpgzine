@@ -25,13 +25,17 @@
 		<meta name="twitter:description" th:content="${content != null and content.get('description') != null ? content.get('description') : 'RPGZine - Um zine sobre RPG de mesa, filosofia OSR (Old School Renaissance), sistemas e assuntos relacionados.'}" />
 		<meta name="twitter:image" th:content="${content != null and content.get('image') != null ? 'https://www.lucasgodoy.dev' + content.get('image') : 'https://www.lucasgodoy.dev/rpgzine/img/imagem-padrao.png'}" />
 	
-	    <!-- Stylesheets -->
+	    <!-- Conexão prévia aos servidores de fontes -->
+	    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
+
+	    <!-- Fontes Consolidadas (apenas as utilizadas: Plus Jakarta Sans e Yrsa) -->
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Yrsa:ital,wght@0,500;0,600;0,700;1,400;1,600&amp;display=swap"/>
+
+	    <!-- Stylesheets Locais Consolidados -->
 	    <link th:with="rootpath=(${content != null and content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'css/bootstrap.min.css'" rel="stylesheet"/>
 	    <link th:with="rootpath=(${content != null and content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'css/asciidoctor.css'" rel="stylesheet"/>
-	    <link th:with="rootpath=(${content != null and content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'css/base.css'" rel="stylesheet"/>
-	    <link th:with="rootpath=(${content != null and content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'css/prettify.css'" rel="stylesheet"/>
 	    <link th:with="rootpath=(${content != null and content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'css/rpgzine.css'" rel="stylesheet"/>
-	    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen"/>
 
 		<!-- Tag de verificação do google search -->
 		<meta name="google-site-verification" content="XuD14deA5t_DsQEoIxOjyaINCTxGkEgMtoigA3rNw-s" />
