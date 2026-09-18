@@ -5,6 +5,7 @@
 	<body onload="prettyPrint()">
     <div id="wrap">
     	<div th:replace="menu.thyme::menu"/>
+		<main>
 		<div class="container" style="max-width: 860px;">
 			<div class="rpg-hero" style="padding: 30px; margin-bottom: 30px;">
 				<h1 style="border-bottom: none; margin: 0;">Quests do RPGZine (Arquivo)</h1>
@@ -24,6 +25,7 @@
 			</div>
 
 		</div>
+		</main>
 	</div>
 	
 	<div th:replace="footer.thyme::footer"></div>

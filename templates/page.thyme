@@ -5,6 +5,7 @@
 	<body onload="prettyPrint()">
 	<div id="wrap">
 		<div th:replace="menu.thyme::menu"/>
+		<main>
 		<div class="container" style="max-width: 860px;">
 	
 			<div class="article-header">
@@ -21,6 +22,7 @@
 				</a>
 			</div>
 		</div>
+		</main>
 	</div>
 	<div th:replace="footer.thyme::footer"></div>
     </body>

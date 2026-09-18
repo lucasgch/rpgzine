@@ -5,6 +5,7 @@
 	<body onload="prettyPrint()">
 	<div id="wrap">
 		<div th:replace="menu.thyme::menu"/>
+		<main>
 		<div class="container">
 			
 			<!-- Hero Banner -->
@@ -94,6 +95,7 @@
 			</div>
 
 		</div>
+		</main>
 	</div>
 	
 	<div th:replace="footer.thyme::footer"></div>
