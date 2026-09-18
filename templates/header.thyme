@@ -30,8 +30,8 @@
 	    <link th:with="rootpath=(${content != null and content.rootpath != null} ? ${content.rootpath} : '')" rel="preload" th:href="${rootpath}+'fonts/yrsa-latin-600-normal.woff2'" as="font" type="font/woff2" crossorigin="anonymous"/>
 
 	    <!-- Stylesheet Principal Consolidado e Minificado com Preload -->
-	    <link th:with="rootpath=(${content != null and content.rootpath != null} ? ${content.rootpath} : '')" rel="preload" th:href="${rootpath}+'css/rpgzine.min.css'" as="style"/>
-	    <link th:with="rootpath=(${content != null and content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+'css/rpgzine.min.css'" rel="stylesheet"/>
+	    <link th:with="rootpath=(${content != null and content.rootpath != null} ? ${content.rootpath} : '')" rel="preload" th:href="${rootpath}+${config.site_css}" as="style"/>
+	    <link th:with="rootpath=(${content != null and content.rootpath != null} ? ${content.rootpath} : '')" th:href="${rootpath}+${config.site_css}" rel="stylesheet"/>
 
 		<!-- Tag de verificação do google search -->
 		<meta name="google-site-verification" content="XuD14deA5t_DsQEoIxOjyaINCTxGkEgMtoigA3rNw-s" />

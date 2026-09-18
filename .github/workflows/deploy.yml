@@ -38,6 +38,14 @@ jobs:
           chmod +x jbake-2.7.0-bin/bin/jbake
           echo "$PWD/jbake-2.7.0-bin/bin" >> $GITHUB_PATH
 
+      - name: Minify CSS
+        run: |
+          for f in assets/css/*.css; do
+            [[ "$f" == *.min.css ]] && continue
+            npx --yes clean-css-cli -o "${f%.css}.min.css" "$f"
+            echo "Minified: $f -> ${f%.css}.min.css"
+          done
+
       - name: Build site with JBake
         run: jbake -b . output
 
