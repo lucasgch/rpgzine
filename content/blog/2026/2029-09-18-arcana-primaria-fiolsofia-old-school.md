@@ -54,3 +54,4 @@ E aí? Tem coragem de se arriscar nesse sistema? Deixamos os links abaixo para q
 * **Instagram:** [@arcanaprimaria](https://www.instagram.com/arcanaprimaria/)
 * **Site Oficial:** [arcanaprimaria.com](https://arcanaprimaria.com/)
 * **[Arcana Primária - Catarse](https://www.catarse.com.br/arcanaprimaria)**
+* **Podcast Dados Críticos**: [#23 - Papo Crítico com Alexandr Katz e Victor Toriani](https://open.spotify.com/episode/5tEOuffMEgi3w2Lv0IaWZG?si=uvSm47KbQ1ijfehdzwZNAg&utm_source=copy-link)
