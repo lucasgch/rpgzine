@@ -4,7 +4,7 @@ type=post
 tags=rpg, arcana primária, old school, adcc, 
 status=published
 description=A Editora Dark Entity lançou um financiamento coletivo para a produção da segunda edição do RPG Stalker em Português. A nova edição promete seguir fiel ao sistema flow que reduz a necessidade de rolar dados e acrescentar novidades como um cenário ambientado no Brasil.
-image=/rpgzine/blog/2026/stalker-rpg-2-edicao.webp
+image=/rpgzine/blog/2026/arcana-primaria-catarse.webp
 ~~~~~~
 
 Celebrando a conquita do RPG nacional **Arcana Primária** que acabou de atingir sua meta no financiamento coletivo. Vamos falar um pouco sobre a filosofia **Old School** desse sistema. 
