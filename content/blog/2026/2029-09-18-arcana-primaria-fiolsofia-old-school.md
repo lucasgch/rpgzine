@@ -1,4 +1,4 @@
-title=Sobreviva, se Puder: Como o Arcana Primária resume de forma direta a filosofia Old-School
+title=Sobreviva, se puder: como o Arcana Primária resume de forma direta a filosofia Old-School
 date=2026-09-18
 type=post
 tags=rpg, arcana primária, old school, adcc, 
