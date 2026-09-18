@@ -38,6 +38,71 @@ jobs:
           chmod +x jbake-2.7.0-bin/bin/jbake
           echo "$PWD/jbake-2.7.0-bin/bin" >> $GITHUB_PATH
 
+      - name: Cache WebP images
+        id: cache-webp
+        uses: actions/cache@v4
+        with:
+          path: assets/img-webp
+          key: webp-v2-${{ hashFiles('assets/img/**') }}
+
+      - name: Convert images to WebP
+        if: steps.cache-webp.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update && sudo apt-get install -y webp imagemagick
+
+          MAX_WIDTH=1200
+          # Files excluded from conversion (e.g. OG image fallback — needs
+          # broad crawler support and is already small).
+          EXCLUDE_NAMES="imagem-padrao.png"
+
+          convert_one() {
+            img="$1"
+            rel="${img#assets/img/}"
+            out="assets/img-webp/${rel%.*}.webp"
+            mkdir -p "$(dirname "$out")"
+
+            for ex in $EXCLUDE_NAMES; do
+              if [ "$(basename "$img")" = "$ex" ]; then
+                echo "Skipped (excluded): $img"
+                return
+              fi
+            done
+
+            width=$(identify -format "%w" "$img" 2>/dev/null || echo 0)
+            resize_args=""
+            if [ "$width" -gt "$MAX_WIDTH" ]; then
+              resize_args="-resize $MAX_WIDTH 0"
+            fi
+
+            case "$img" in
+              *.png|*.PNG)
+                has_alpha=$(identify -format "%A" "$img" 2>/dev/null || echo "False")
+                if [ "$has_alpha" = "True" ]; then
+                  cwebp -lossless $resize_args "$img" -o "$out" >/dev/null 2>&1
+                else
+                  cwebp -q 82 $resize_args "$img" -o "$out" >/dev/null 2>&1
+                fi
+                ;;
+              *)
+                cwebp -q 82 $resize_args "$img" -o "$out" >/dev/null 2>&1
+                ;;
+            esac
+
+            before=$(stat -c%s "$img")
+            after=$(stat -c%s "$out")
+            echo "Converted: $img (${before} bytes) -> $out (${after} bytes)"
+          }
+
+          find assets/img -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | while read -r img; do
+            convert_one "$img"
+          done
+
+      - name: Copy WebP into assets
+        run: |
+          if [ -d assets/img-webp ]; then
+            cp -rn assets/img-webp/. assets/img/
+          fi
+
       - name: Minify CSS
         run: |
           for f in assets/css/*.css; do
@@ -48,6 +113,42 @@ jobs:
 
       - name: Build site with JBake
         run: jbake -b . output
+
+      - name: Rewrite img to picture with WebP fallback
+        run: |
+          find output -name "*.html" -print0 | xargs -0 -I{} python3 - "{}" <<'PYEOF'
+          import re, sys
+
+          path = sys.argv[1]
+          with open(path, "r", encoding="utf-8") as f:
+              html = f.read()
+
+          # Rewrite <img src="*.jpg|*.png"> → <picture><source webp><img></picture>
+          # in the final HTML output so the browser never downloads both formats.
+          # Excluded: imagem-padrao.png (OG image fallback — crawler compatibility).
+          # Note: regex-based; works for standard single-line <img> tags generated
+          # by JBake's Markdown parser. Switch to BeautifulSoup if multiline attrs appear.
+          def replace_img(match):
+              full_tag = match.group(0)
+              src = match.group(1)
+
+              if "imagem-padrao" in src:
+                  return full_tag
+
+              webp_src = re.sub(r"\.(jpe?g|png)$", ".webp", src, flags=re.IGNORECASE)
+              return (
+                  f'<picture><source srcset="{webp_src}" type="image/webp">'
+                  f'{full_tag}</picture>'
+              )
+
+          pattern = re.compile(r'<img\s+[^>]*src="([^"]+\.(jpe?g|png))"[^>]*>', re.IGNORECASE)
+          new_html = pattern.sub(replace_img, html)
+
+          if new_html != html:
+              with open(path, "w", encoding="utf-8") as f:
+                  f.write(new_html)
+              print(f"Rewrote: {path}")
+          PYEOF
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
