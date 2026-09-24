@@ -10,7 +10,7 @@
         <div class="dice-modal">
           <button type="button" class="close-modal" id="close-dice-modal">&times;</button>
           <h3 style="margin-top:0; color: var(--accent-gold); font-family: var(--font-heading);">
-            🎲 Rolador de Dados RPG
+            Dados do destino
           </h3>
           <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">
             Escolha o dado para realizar a rolagem:
@@ -21,7 +21,7 @@
             <button class="dice-chip" data-sides="8">d8</button>
             <button class="dice-chip" data-sides="10">d10</button>
             <button class="dice-chip" data-sides="12">d12</button>
-            <button class="dice-chip" data-sides="20" style="border-color: var(--accent-gold); color: var(--accent-gold);">d20</button>
+            <button class="dice-chip" data-sides="20">d20</button>
             <button class="dice-chip" data-sides="100">d100</button>
           </div>
           <div class="dice-result-box">
@@ -69,6 +69,9 @@
     // Dice rolling logic with animation
     diceChips.forEach(function (chip) {
       chip.addEventListener('click', function () {
+        // Marca o dado clicado como ativo
+        diceChips.forEach(function (c) { c.classList.remove('active'); });
+        chip.classList.add('active');
         const sides = parseInt(chip.getAttribute('data-sides'), 10);
         rollDice(sides);
       });
