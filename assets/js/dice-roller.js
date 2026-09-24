@@ -10,7 +10,7 @@
         <div class="dice-modal">
           <button type="button" class="close-modal" id="close-dice-modal">&times;</button>
           <h3 style="margin-top:0; color: var(--accent-gold); font-family: var(--font-heading);">
-            Dados do destino
+            Dado do destino
           </h3>
           <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">
             Escolha o dado para realizar a rolagem:
